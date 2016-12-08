@@ -1,0 +1,32 @@
+.leaflet-so-popup-tip-container {
+	position: relative;	
+}
+
+.leaflet-so-popup-tip-s {
+	margin: 11px auto 0;
+}
+
+.leaflet-container a.leaflet-so-popup-close-button-s {
+	top: 20px;
+}
+
+.leaflet-container a.leaflet-so-popup-close-button-w {
+	right: 20px;
+}
+
+.leaflet-so-popup-content-wrapper-w {
+	margin-right: 20px;
+	float:left;
+}
+
+.leaflet-so-popup-tip-container-w {
+	width: 20px;
+	position: relative;
+	float: right;
+	left: 0;
+	top: 25%;
+}
+
+.leaflet-so-popup-tip-w {
+	margin: 0 -11px;
+}
