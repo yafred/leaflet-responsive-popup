@@ -72,14 +72,15 @@
 
 
 .leaflet-so-popup-tip-container-nw {
+	width: 20px;
 	margin-right: 0;
 	margin-top: -1px;
-	right: 0;
 	left: 100%;
+	right: 0;
 }
 
 .leaflet-so-popup-tip-nw {
-	margin: -8px 11px 11px 32px;
+	margin: -8px 11px 11px 11px;
 }
 
 .leaflet-so-popup-content-wrapper-nw {
