@@ -87,3 +87,18 @@
     border-radius: 20px 20px 0 20px;
 }
 
+
+
+.leaflet-so-popup-tip-container-sw {
+	width: 20px;
+	left: 100%;
+	right: 0;
+	margin-top: -20px;
+}
+
+.leaflet-so-popup-tip-sw {
+	margin: 11px 11px 11px 11px;
+}
+.leaflet-so-popup-content-wrapper-sw {
+	border-radius: 20px 0 20px 20px;
+}
