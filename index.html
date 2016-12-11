@@ -15,6 +15,7 @@
 </head>
 <body>
 
+<div style="float: left; margin-right: 20px">
     <h2>Standard L.Popup</h2>
     <p>Click on the map to show a standard leaflet popup.</p>
     <div id="map1" style="height:400px; width:400px; margin-bottom: 20px;"></div>
@@ -31,7 +32,38 @@
                      .openOn(map1);
         });
     </script>
+ </div>
     
+<div style="float: left">
+    <h2>Self-Orienting Popup - No tip</h2>
+    <p>Click on the map to show a self-orienting popup.</p>
+    <div id="map2" style="height:400px; width:400px; margin-bottom: 20px;"></div>
+    <script type="text/javascript">
+        var map2 = L.map('map2').setView([48.850258, 2.351074], 11);
+    	// create the tile layer with correct attribution
+    	L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    	}).addTo(map2);
+    	
+    	map2.on('click',function(e) {
+            L.soPopup().setContent(e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6))
+                     .setLatLng(e.latlng)
+                     .openOn(map2);
+        });
+    	
+    	map2.on('popupopen',function(e) {
+    		e.popup.marker1 = L.circleMarker(e.popup.getLatLng(), { radius: 2 , color: "#0000ff" }).addTo(map2);
+    		e.popup.marker2 = L.circleMarker(e.popup.getLatLng(), { radius: 10 , color: "#ff0000" }).addTo(map2);
+        });
+    	
+    	map2.on('popupclose',function(e) {
+    		map2.removeLayer(e.popup.marker1);
+    		map2.removeLayer(e.popup.marker2);
+        });
+    </script>
+</div>
+
+<div style="clear: left">
     <h2>Self-Orienting Popup CSS</h2>
     <p>This work on progress ...</p>
     <div class="leaflet-container" style="width: 450px; height: 400px; margin-bottom:20px; background-color: #C0ffC0;">
@@ -116,34 +148,8 @@
           </div>
        </div>
        
-    </div>  
-    
-    <h2>Self-Orienting Popup - No tip</h2>
-    <p>Click on the map to show a self-orienting popup.</p>
-    <div id="map2" style="height:400px; width:400px; margin-bottom: 20px;"></div>
-    <script type="text/javascript">
-        var map2 = L.map('map2').setView([48.850258, 2.351074], 11);
-    	// create the tile layer with correct attribution
-    	L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    	}).addTo(map2);
-    	
-    	map2.on('click',function(e) {
-            L.soPopup().setContent(e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6))
-                     .setLatLng(e.latlng)
-                     .openOn(map2);
-        });
-    	
-    	map2.on('popupopen',function(e) {
-    		e.popup.marker1 = L.circleMarker(e.popup.getLatLng(), { radius: 2 , color: "#0000ff" }).addTo(map2);
-    		e.popup.marker2 = L.circleMarker(e.popup.getLatLng(), { radius: 10 , color: "#ff0000" }).addTo(map2);
-        });
-    	
-    	map2.on('popupclose',function(e) {
-    		map2.removeLayer(e.popup.marker1);
-    		map2.removeLayer(e.popup.marker2);
-        });
-    </script>
+    </div> 
+</div> 
 
 	<!-- analytics -->
     <script>

@@ -1,6 +1,13 @@
 L.SoPopup = L.Popup.extend({
 	
 	/**
+	 * Options:
+	 * - Do we use tips ? (no)
+	 * - How near to an edge can a popup be ? (fenceWidth)
+	 */
+	
+	
+	/**
 	 * Overrides https://github.com/Leaflet/Leaflet/blob/release-1.0.2/src/layer/Popup.js#L158
 	 */
 	_initLayout: function () {
@@ -39,7 +46,7 @@ L.SoPopup = L.Popup.extend({
 	 */
 	_updatePosition: function () {
 		if (!this._map) { return; }
-
+		
 		// position upper left corner of the popup
 		var pos = this._map.latLngToLayerPoint(this._latlng),
 		    offset = L.point(this.options.offset),
@@ -51,16 +58,40 @@ L.SoPopup = L.Popup.extend({
 			offset = offset.add(pos).add(anchor);
 		}
 
-		// offset popup north
-		var bottom = this._containerBottom = -offset.y,
-		    left = this._containerLeft = -Math.round(this._containerWidth / 2) + offset.x;
-		
+		// context
 		var mapSize = this._map.getSize();
-		if(mapSize.x > mapSize.y) { // horizontal
-			// offset popup west
-			bottom = this._containerBottom = -Math.round(this._container.offsetHeight / 2) -offset.y -20; // 20: leaflet-popup margin-bottom (we could add our css for that)
-		    left = this._containerLeft = -this._containerWidth + offset.x - 20; // 20: leaflet-popup non-existent margin-right (we could add our css for that)
+		var posQuadrant = "";
+		
+		if(pos.y < Math.round(mapSize.y / 2)) {
+			posQuadrant = "n";
 		}
+		else {
+			posQuadrant = "s";
+		}
+		
+		if(pos.x < Math.round(mapSize.x / 2)) {
+			posQuadrant += "w";
+		}
+		else {
+			posQuadrant += "e";
+		}
+		
+		// offset the popup in a way it will be visible without moving the map
+		var fenceWidth = 10;
+		var bottom = this._containerBottom = -offset.y;
+		if(/n/.test(posQuadrant)) {
+			bottom = this._containerBottom = -this._container.offsetHeight -offset.y -20 -5; // leaflet-popup margin-bottom: 20px
+		}
+		
+		var left = this._containerLeft = -Math.round(this._containerWidth / 2) + offset.x;
+		if(/w/.test(posQuadrant) && pos.x + left < fenceWidth) { // left from the fence
+			left = this._containerLeft = fenceWidth - pos.x;
+		}
+
+		if(/e/.test(posQuadrant) && (pos.x + Math.round(this._containerWidth/2) + fenceWidth) > mapSize.x) { // right from the fence
+			left = this._containerLeft = (mapSize.x - pos.x) - this._containerWidth - fenceWidth;
+		}
+
 
 		// bottom position the popup in case the height of the popup changes (images loading etc)
 		this._container.style.bottom = bottom + 'px';
