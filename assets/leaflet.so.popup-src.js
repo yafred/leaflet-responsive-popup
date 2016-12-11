@@ -26,8 +26,10 @@ L.SoPopup = L.Popup.extend({
 			.disableScrollPropagation(this._contentNode)
 			.on(wrapper, 'contextmenu', L.DomEvent.stopPropagation);
 
+		/* No tip
 		this._tipContainer = L.DomUtil.create('div', prefix + '-tip-container', container);
 		this._tip = L.DomUtil.create('div', prefix + '-tip', this._tipContainer);
+		*/
 	},
 	
 	
@@ -38,6 +40,7 @@ L.SoPopup = L.Popup.extend({
 	_updatePosition: function () {
 		if (!this._map) { return; }
 
+		// position upper left corner of the popup
 		var pos = this._map.latLngToLayerPoint(this._latlng),
 		    offset = L.point(this.options.offset),
 		    anchor = this._getAnchor();
@@ -48,8 +51,16 @@ L.SoPopup = L.Popup.extend({
 			offset = offset.add(pos).add(anchor);
 		}
 
+		// offset popup north
 		var bottom = this._containerBottom = -offset.y,
 		    left = this._containerLeft = -Math.round(this._containerWidth / 2) + offset.x;
+		
+		var mapSize = this._map.getSize();
+		if(mapSize.x > mapSize.y) { // horizontal
+			// offset popup west
+			bottom = this._containerBottom = -Math.round(this._container.offsetHeight / 2) -offset.y -20; // 20: leaflet-popup margin-bottom (we could add our css for that)
+		    left = this._containerLeft = -this._containerWidth + offset.x - 20; // 20: leaflet-popup non-existent margin-right (we could add our css for that)
+		}
 
 		// bottom position the popup in case the height of the popup changes (images loading etc)
 		this._container.style.bottom = bottom + 'px';
