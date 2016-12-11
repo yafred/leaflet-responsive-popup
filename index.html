@@ -93,6 +93,35 @@
 </div>
 
 
+<div style="float: left; margin-right: 20px">
+    <h2>Self-Orienting Popup - Extreme</h2>
+    <p>Click on the map to show a self-orienting popup.</p>
+    <div id="map4" style="height:300px; width:500px; margin-bottom: 20px;"></div>
+    <script type="text/javascript">
+        var map4 = L.map('map4').setView([48.850258, 2.351074], 11);
+    	// create the tile layer with correct attribution
+    	L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    	}).addTo(map4);
+    	
+    	map4.on('click',function(e) {
+            L.soPopup({ autoPan: false}).setContent('<div style="text-align: center; height: 200px; width: 100px">' + e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6) + '</div>')
+                     .setLatLng(e.latlng)
+                     .openOn(map4);
+        });
+    	
+    	map4.on('popupopen',function(e) {
+    		e.popup.marker1 = L.circleMarker(e.popup.getLatLng(), { radius: 2 , color: "#0000ff" }).addTo(map4);
+    		e.popup.marker2 = L.circleMarker(e.popup.getLatLng(), { radius: 10 , color: "#ff0000" }).addTo(map4);
+        });
+    	
+    	map4.on('popupclose',function(e) {
+    		map4.removeLayer(e.popup.marker1);
+    		map4.removeLayer(e.popup.marker2);
+        });
+    </script>
+</div>
+
 <div style="clear: left">
     <h2>Self-Orienting Popup CSS</h2>
     <p>This work on progress ...</p>

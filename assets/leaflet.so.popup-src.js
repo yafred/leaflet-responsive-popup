@@ -47,7 +47,7 @@ L.SoPopup = L.Popup.extend({
 	_updatePosition: function () {
 		if (!this._map) { return; }
 		
-		// position upper left corner of the popup
+		// position upper left corner of the popup before offsetting
 		var pos = this._map.latLngToLayerPoint(this._latlng),
 		    offset = L.point(this.options.offset),
 		    anchor = this._getAnchor();
@@ -58,7 +58,7 @@ L.SoPopup = L.Popup.extend({
 			offset = offset.add(pos).add(anchor);
 		}
 
-		// context
+		// what is the position before offsetting ?
 		var mapSize = this._map.getSize();
 		var posQuadrant = "";
 		
@@ -76,9 +76,22 @@ L.SoPopup = L.Popup.extend({
 			posQuadrant += "e";
 		}
 		
+		// can the popup fit ?
+		var canGoAbove = true;
+		var canGoSideway = true;
+		if(this._container.offsetHeight > Math.round(mapSize.y/2)) { // There are more parameters to take into account
+			canGoAbove = false;
+			console.log('does not fit above');
+		}
+		if(this._containerWidth > Math.round(mapSize.x/2)) { // There are more parameters to take into account
+			canGoSideway = false;
+			console.log('does not fit on the side');
+		}
+		
 		// offset the popup in a way it will be visible without moving the map
 		var fenceWidth = 10;
-		var bottom = this._containerBottom = -offset.y;
+		
+		var bottom = this._containerBottom = -offset.y;	
 		if(/n/.test(posQuadrant)) {
 			bottom = this._containerBottom = -this._container.offsetHeight -offset.y -20 -5; // leaflet-popup margin-bottom: 20px
 		}
@@ -91,7 +104,22 @@ L.SoPopup = L.Popup.extend({
 		if(/e/.test(posQuadrant) && (pos.x + Math.round(this._containerWidth/2) + fenceWidth) > mapSize.x) { // right from the fence
 			left = this._containerLeft = (mapSize.x - pos.x) - this._containerWidth - fenceWidth;
 		}
-
+		
+		if(!canGoAbove && canGoSideway) { // let's change the position
+			left = this._containerLeft = 20; // margin
+			if(/e/.test(posQuadrant)) {
+				left = this._containerLeft = -this._containerWidth - 20; // margin
+			}
+			
+			bottom = this._containerBottom = -Math.round(this._container.offsetHeight / 2) -offset.y -20; // margin
+			if(/n/.test(posQuadrant) && pos.y - Math.round(this._container.offsetHeight / 2) < fenceWidth ) {
+				console.log('move it n');
+			}
+			if(/s/.test(posQuadrant) && pos.y + Math.round(this._container.offsetHeight / 2) > mapSize.y - fenceWidth) {
+				console.log('move it s');
+			}
+		}
+		
 
 		// bottom position the popup in case the height of the popup changes (images loading etc)
 		this._container.style.bottom = bottom + 'px';
