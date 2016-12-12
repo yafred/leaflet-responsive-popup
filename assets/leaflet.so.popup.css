@@ -1,17 +1,17 @@
-.leaflet-so-popup-tip-container-s {
+.leaflet-resp-popup-tip-container-s {
 	position: relative;	
 }
 
-.leaflet-so-popup-tip-s {
+.leaflet-resp-popup-tip-s {
 	margin: 11px auto 0;
 }
 
-.leaflet-container a.leaflet-so-popup-close-button-s {
+.leaflet-container a.leaflet-resp-popup-close-button-s {
 	top: 20px;
 }
 
 
-.leaflet-so-popup-tip-container-w {
+.leaflet-resp-popup-tip-container-w {
 	width: 20px;
 	margin-left: 0;
 	margin-right: -20px;
@@ -20,58 +20,58 @@
 	top: 25%; // needs adjusting in javascript
 }
 
-.leaflet-so-popup-tip-w {
+.leaflet-resp-popup-tip-w {
 	margin: 0 -11px;
 }
 
 
-.leaflet-so-popup-tip-container-e {
+.leaflet-resp-popup-tip-container-e {
 	width: 20px;
 	left: 0;
 	top: 25%; // needs adjusting in javascript
 }
 
 
-.leaflet-so-popup-tip-e {
+.leaflet-resp-popup-tip-e {
 	margin: 0 11px;
 }
 
 
-.leaflet-so-popup-tip-container-se {
+.leaflet-resp-popup-tip-container-se {
 	width: 20px;
 	left: 0;
 	margin-left: 0;
 	margin-top: -20px;
 }
 
-.leaflet-so-popup-tip-se {
+.leaflet-resp-popup-tip-se {
 	margin: 11px 11px 11px -8px; 
 }
 
-.leaflet-so-popup-content-wrapper-se {
+.leaflet-resp-popup-content-wrapper-se {
     border-radius: 0 20px 20px 20px;
 }
 
 
 
-.leaflet-so-popup-tip-container-ne {
+.leaflet-resp-popup-tip-container-ne {
 	width: 20px;
 	left: 0;
 	margin-left: 0;
 	margin-top: -1px;
 }
 
-.leaflet-so-popup-tip-ne {
+.leaflet-resp-popup-tip-ne {
 	margin: -8px 11px 11px -8px;
 }
 
-.leaflet-so-popup-content-wrapper-ne {
+.leaflet-resp-popup-content-wrapper-ne {
     border-radius: 20px 20px 20px 0;
 }
 
 
 
-.leaflet-so-popup-tip-container-nw {
+.leaflet-resp-popup-tip-container-nw {
 	width: 20px;
 	margin-right: 0;
 	margin-top: -1px;
@@ -79,26 +79,26 @@
 	right: 0;
 }
 
-.leaflet-so-popup-tip-nw {
+.leaflet-resp-popup-tip-nw {
 	margin: -8px 11px 11px 11px;
 }
 
-.leaflet-so-popup-content-wrapper-nw {
+.leaflet-resp-popup-content-wrapper-nw {
     border-radius: 20px 20px 0 20px;
 }
 
 
 
-.leaflet-so-popup-tip-container-sw {
+.leaflet-resp-popup-tip-container-sw {
 	width: 20px;
 	left: 100%;
 	right: 0;
 	margin-top: -20px;
 }
 
-.leaflet-so-popup-tip-sw {
+.leaflet-resp-popup-tip-sw {
 	margin: 11px 11px 11px 11px;
 }
-.leaflet-so-popup-content-wrapper-sw {
+.leaflet-resp-popup-content-wrapper-sw {
 	border-radius: 20px 0 20px 20px;
 }

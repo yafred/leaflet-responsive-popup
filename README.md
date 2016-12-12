@@ -1,4 +1,4 @@
-## Self-orienting popup
+## Responsive Popup
 
 This was inspired by [Rrose: A Leaflet Plugin for Edge Cases](https://github.com/erictheise/rrose).
 
