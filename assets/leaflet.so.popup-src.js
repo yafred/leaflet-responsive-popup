@@ -104,9 +104,9 @@ L.ResponsivePopup = L.Popup.extend({
 		}
 		
 		if(!canGoAbove && canGoSideway) { // let's change the position
-			left = this._containerLeft = 20; // margin
+			left = this._containerLeft = 20 - 8; // margin
 			if(/e/.test(posQuadrant)) {
-				left = this._containerLeft = -this._containerWidth - 20; // margin
+				left = this._containerLeft = -this._containerWidth - 20 + 8; // margin
 			}
 			
 			bottom = this._containerBottom = -Math.round(this._container.offsetHeight / 2) -offset.y -20; // margin
