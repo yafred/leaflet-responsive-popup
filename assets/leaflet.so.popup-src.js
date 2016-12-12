@@ -81,11 +81,9 @@ L.ResponsivePopup = L.Popup.extend({
 		var canGoSideway = true;
 		if(this._container.offsetHeight > Math.round(mapSize.y/2)) { // There are more parameters to take into account
 			canGoAbove = false;
-			console.log('does not fit above');
 		}
 		if(this._containerWidth > Math.round(mapSize.x/2)) { // There are more parameters to take into account
 			canGoSideway = false;
-			console.log('does not fit on the side');
 		}
 		
 		// offset the popup in a way it will be visible without moving the map
@@ -113,10 +111,10 @@ L.ResponsivePopup = L.Popup.extend({
 			
 			bottom = this._containerBottom = -Math.round(this._container.offsetHeight / 2) -offset.y -20; // margin
 			if(/n/.test(posQuadrant) && pos.y - Math.round(this._container.offsetHeight / 2) < fenceWidth ) {
-				console.log('move it n');
+				bottom = this._containerBottom = -this._container.offsetHeight + pos.y - 20 - fenceWidth; // margin
 			}
 			if(/s/.test(posQuadrant) && pos.y + Math.round(this._container.offsetHeight / 2) > mapSize.y - fenceWidth) {
-				console.log('move it s');
+				bottom = this._containerBottom = pos.y - mapSize.y - 20 + fenceWidth;
 			}
 		}
 		
