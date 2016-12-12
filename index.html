@@ -46,7 +46,7 @@
     	}).addTo(map2);
     	
     	map2.on('click',function(e) {
-            L.soPopup().setContent(e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6))
+            L.responsivePopup().setContent(e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6))
                      .setLatLng(e.latlng)
                      .openOn(map2);
         });
@@ -64,7 +64,7 @@
 </div>
 
 <div style="float: left; margin-right: 20px">
-    <h2>Responsive Popup - Extreme</h2>
+    <h2>Responsive Popup - Landscape</h2>
     <p>Click on the map to show a responsive popup.</p>
     <div id="map3" style="height:400px; width:400px; margin-bottom: 20px;"></div>
     <script type="text/javascript">
@@ -75,7 +75,7 @@
     	}).addTo(map3);
     	
     	map3.on('click',function(e) {
-            L.soPopup({ autoPan: false}).setContent('<div style="text-align: center; height: 160px; width: 300px">' + e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6) + '</div>')
+            L.responsivePopup({ autoPan: false}).setContent('<div style="text-align: center; height: 160px; width: 300px">' + e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6) + '</div>')
                      .setLatLng(e.latlng)
                      .openOn(map3);
         });
@@ -94,8 +94,8 @@
 
 
 <div style="float: left; margin-right: 20px">
-    <h2>Responsive Popup - Extreme</h2>
-    <p>Click on the map to show a responsive popup. This work on progress ...</p>
+    <h2>Responsive Popup - Portrait</h2>
+    <p>Click on the map to show a responsive popup.</p>
     <div id="map4" style="height:300px; width:500px; margin-bottom: 20px;"></div>
     <script type="text/javascript">
         var map4 = L.map('map4').setView([48.850258, 2.351074], 11);
@@ -105,7 +105,7 @@
     	}).addTo(map4);
     	
     	map4.on('click',function(e) {
-            L.soPopup({ autoPan: false}).setContent('<div style="text-align: center; height: 200px; width: 100px">' + e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6) + '</div>')
+            L.responsivePopup({ autoPan: false}).setContent('<div style="text-align: center; height: 200px; width: 100px">' + e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6) + '</div>')
                      .setLatLng(e.latlng)
                      .openOn(map4);
         });
