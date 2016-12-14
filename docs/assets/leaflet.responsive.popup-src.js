@@ -1,6 +1,10 @@
 L.ResponsivePopup = L.Popup.extend({
 	
 	/**
+	 * Big issues:
+	 * - Position is wrong if map has been moved
+	 * - Position is wrong if zoomAnimation: false
+	 * 
 	 * Options:
 	 * - Do we use tips ? (no)
 	 * - How near to an edge can a popup be ? (fenceWidth)
