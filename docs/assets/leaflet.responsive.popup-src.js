@@ -51,81 +51,76 @@ L.ResponsivePopup = L.Popup.extend({
 	_updatePosition: function () {
 		if (!this._map) { return; }
 		
-		// position upper left corner of the popup before offsetting
-		var pos = this._map.latLngToLayerPoint(this._latlng),
-		    offset = L.point(this.options.offset),
-		    anchor = this._getAnchor();
-
-		if (this._zoomAnimated) {
-			L.DomUtil.setPosition(this._container, pos.add(anchor));
-		} else {
-			offset = offset.add(pos).add(anchor);
-		}
-
-		// what is the position before offsetting ?
-		var mapSize = this._map.getSize();
+		var map = this._map,
+            container = this._container,
+		    pos = this._map.latLngToLayerPoint(this._latlng),
+	        centerPoint = map.latLngToContainerPoint(map.getCenter()),
+	        tooltipPoint = map.layerPointToContainerPoint(pos),
+	        tooltipWidth = container.offsetWidth,
+	        tooltipHeight = container.offsetHeight,
+	        direction = this.options.direction,   // do we need to pull this from posQuadrant ?
+	        offset = L.point(this.options.offset), // needs support
+	        anchor = this._getAnchor();  // needs support
+	    
+		// which quadrant
 		var posQuadrant = "";
 		
-		if(pos.y < Math.round(mapSize.y / 2)) {
+		if(tooltipPoint.y < centerPoint.y) {
 			posQuadrant = "n";
 		}
 		else {
 			posQuadrant = "s";
 		}
 		
-		if(pos.x < Math.round(mapSize.x / 2)) {
+		if(tooltipPoint.x < centerPoint.x) {
 			posQuadrant += "w";
 		}
 		else {
 			posQuadrant += "e";
 		}
 		
-		// can the popup fit ?
+		// can the popup fit ? 
 		var canGoAbove = true;
 		var canGoSideway = true;
-		if(this._container.offsetHeight > Math.round(mapSize.y/2)) { // There are more parameters to take into account
+		if(tooltipHeight > centerPoint.y) { 
 			canGoAbove = false;
 		}
-		if(this._containerWidth > Math.round(mapSize.x/2)) { // There are more parameters to take into account
+		if(tooltipWidth > centerPoint.x) { 
 			canGoSideway = false;
 		}
 		
-		// offset the popup in a way it will be visible without moving the map
-		var fenceWidth = 10;
-		
-		var bottom = this._containerBottom = -offset.y;	
-		if(/n/.test(posQuadrant)) {
-			bottom = this._containerBottom = -this._container.offsetHeight -offset.y -20 -5; // leaflet-popup margin-bottom: 20px
-		}
-		
-		var left = this._containerLeft = -Math.round(this._containerWidth / 2) + offset.x;
-		if(/w/.test(posQuadrant) && pos.x + left < fenceWidth) { // left from the fence
-			left = this._containerLeft = fenceWidth - pos.x;
-		}
-
-		if(/e/.test(posQuadrant) && (pos.x + Math.round(this._containerWidth/2) + fenceWidth) > mapSize.x) { // right from the fence
-			left = this._containerLeft = (mapSize.x - pos.x) - this._containerWidth - fenceWidth;
-		}
-		
-		if(!canGoAbove && canGoSideway) { // let's change the position
-			left = this._containerLeft = 20 - 8; // margin
-			if(/e/.test(posQuadrant)) {
-				left = this._containerLeft = -this._containerWidth - 20 + 8; // margin
+		if(canGoAbove) {
+			var offsetX = tooltipWidth / 2;
+			if(tooltipPoint.x - offsetX < 0) {
+				offsetX = tooltipPoint.x;
 			}
-			
-			bottom = this._containerBottom = -Math.round(this._container.offsetHeight / 2) -offset.y -20; // margin
-			if(/n/.test(posQuadrant) && pos.y - Math.round(this._container.offsetHeight / 2) < fenceWidth ) {
-				bottom = this._containerBottom = -this._container.offsetHeight + pos.y - 20 - fenceWidth; // margin
+			if(tooltipPoint.x + tooltipWidth / 2 > 2*centerPoint.x) {
+				offsetX = tooltipWidth - 2*centerPoint.x + tooltipPoint.x;
 			}
-			if(/s/.test(posQuadrant) && pos.y + Math.round(this._container.offsetHeight / 2) > mapSize.y - fenceWidth) {
-				bottom = this._containerBottom = pos.y - mapSize.y - 20 + fenceWidth;
+			if(/s/.test(posQuadrant)) {
+				pos = pos.subtract(L.point(offsetX, tooltipHeight, true));
+			}
+			else {
+				pos = pos.subtract(L.point(offsetX, 0, true));
 			}
 		}
+		else if(canGoSideway) {
+			var offsetY = tooltipHeight / 2;
+			if(tooltipPoint.y - offsetY < 0) {
+				offsetY = tooltipPoint.y;
+			}		
+			if(tooltipPoint.y + tooltipHeight / 2 > 2*centerPoint.y) {
+				offsetY = tooltipHeight - 2*centerPoint.y + tooltipPoint.y;
+			}			
+			if(/w/.test(posQuadrant)) {
+				pos = pos.subtract(L.point(0, offsetY, true));
+			}
+			else {
+				pos = pos.subtract(L.point(tooltipWidth , offsetY, true));
+			}
+		}
 		
-
-		// bottom position the popup in case the height of the popup changes (images loading etc)
-		this._container.style.bottom = bottom + 'px';
-		this._container.style.left = left + 'px';
+		L.DomUtil.setPosition(this._container, pos);
 	}
 	
 });
