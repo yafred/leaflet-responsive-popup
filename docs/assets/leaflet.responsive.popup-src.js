@@ -1,16 +1,5 @@
 L.ResponsivePopup = L.Popup.extend({
-	
-	/**
-	 * Big issues:
-	 * - Position is wrong if map has been moved
-	 * - Position is wrong if zoomAnimation: false
-	 * 
-	 * Options:
-	 * - Do we use tips ? (no)
-	 * - How near to an edge can a popup be ? (fenceWidth)
-	 */
-	
-	
+		
 	/**
 	 * Overrides https://github.com/Leaflet/Leaflet/blob/release-1.0.2/src/layer/Popup.js#L158
 	 */
@@ -91,10 +80,10 @@ L.ResponsivePopup = L.Popup.extend({
 		
 		if(canGoAbove) {
 			var offsetX = tooltipWidth / 2;
-			if(tooltipPoint.x - offsetX < 0) {
+			if(tooltipPoint.x - offsetX < 0) { // left overflow
 				offsetX = tooltipPoint.x;
 			}
-			if(tooltipPoint.x + tooltipWidth / 2 > 2*centerPoint.x) {
+			if(tooltipPoint.x + tooltipWidth / 2 > 2*centerPoint.x) { // right overflow
 				offsetX = tooltipWidth - 2*centerPoint.x + tooltipPoint.x;
 			}
 			if(/s/.test(posQuadrant)) {
@@ -106,10 +95,10 @@ L.ResponsivePopup = L.Popup.extend({
 		}
 		else if(canGoSideway) {
 			var offsetY = tooltipHeight / 2;
-			if(tooltipPoint.y - offsetY < 0) {
+			if(tooltipPoint.y - offsetY < 0) { // top overflow
 				offsetY = tooltipPoint.y;
 			}		
-			if(tooltipPoint.y + tooltipHeight / 2 > 2*centerPoint.y) {
+			if(tooltipPoint.y + tooltipHeight / 2 > 2*centerPoint.y) { // bottom overflow
 				offsetY = tooltipHeight - 2*centerPoint.y + tooltipPoint.y;
 			}			
 			if(/w/.test(posQuadrant)) {
