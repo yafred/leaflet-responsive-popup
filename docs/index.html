@@ -56,7 +56,7 @@
     	}).addTo(map2);
     	
     	map2.on('click',function(e) {
-            L.responsivePopup({ autoPan: false}).setContent(e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6))
+            L.responsivePopup({ autoPan: false, offset: [11, 11]}).setContent(e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6))
                      .setLatLng(e.latlng)
                      .openOn(map2);
         });
@@ -85,7 +85,7 @@
     	}).addTo(map3);
     	
     	map3.on('click',function(e) {
-            L.responsivePopup({ autoPan: false}).setContent('<div style="text-align: center; height: 160px; width: 300px">' + e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6) + '</div>')
+            L.responsivePopup({ autoPan: false, offset: [11, 11]}).setContent('<div style="text-align: center; height: 160px; width: 300px">' + e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6) + '</div>')
                      .setLatLng(e.latlng)
                      .openOn(map3);
         });
@@ -115,7 +115,7 @@
     	}).addTo(map4);
     	
     	map4.on('click',function(e) {
-            L.responsivePopup({ autoPan: false}).setContent('<div style="text-align: center; height: 200px; width: 100px">' + e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6) + '</div>')
+            L.responsivePopup({ autoPan: false, offset: [11, 11]}).setContent('<div style="text-align: center; height: 200px; width: 100px">' + e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6) + '</div>')
                      .setLatLng(e.latlng)
                      .openOn(map4);
         });

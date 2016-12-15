@@ -1,5 +1,10 @@
 L.ResponsivePopup = L.Popup.extend({
 		
+	options: {
+		// min distance between an edge of the popup and a border of the map
+		mapPadding: 10
+	},
+	
 	/**
 	 * Overrides https://github.com/Leaflet/Leaflet/blob/release-1.0.2/src/layer/Popup.js#L158
 	 */
@@ -40,6 +45,7 @@ L.ResponsivePopup = L.Popup.extend({
 	_updatePosition: function () {
 		if (!this._map) { return; }
 		
+		console.log(this.options.mapPadding);
 		var map = this._map,
             container = this._container,
 		    pos = this._map.latLngToLayerPoint(this._latlng),
@@ -68,7 +74,7 @@ L.ResponsivePopup = L.Popup.extend({
 			posQuadrant += "e";
 		}
 		
-		// can the popup fit ? 
+		// can the popup fit ? (roughly)
 		var canGoAbove = true;
 		var canGoSideway = true;
 		if(tooltipHeight > centerPoint.y) { 
@@ -79,33 +85,33 @@ L.ResponsivePopup = L.Popup.extend({
 		}
 		
 		if(canGoAbove) {
-			var offsetX = tooltipWidth / 2;
-			if(tooltipPoint.x - offsetX < 0) { // left overflow
-				offsetX = tooltipPoint.x;
+			var subtractX = tooltipWidth / 2;
+			if(tooltipPoint.x - subtractX < this.options.mapPadding) { // left overflow
+				subtractX = tooltipPoint.x - this.options.mapPadding;
 			}
-			if(tooltipPoint.x + tooltipWidth / 2 > 2*centerPoint.x) { // right overflow
-				offsetX = tooltipWidth - 2*centerPoint.x + tooltipPoint.x;
+			if(tooltipPoint.x + tooltipWidth / 2 > 2*centerPoint.x - this.options.mapPadding) { // right overflow
+				subtractX = tooltipWidth - 2*centerPoint.x + tooltipPoint.x + this.options.mapPadding;
 			}
 			if(/s/.test(posQuadrant)) {
-				pos = pos.subtract(L.point(offsetX, tooltipHeight, true));
+				pos = pos.subtract(L.point(subtractX, tooltipHeight + Math.abs(offset.y), true));
 			}
 			else {
-				pos = pos.subtract(L.point(offsetX, 0, true));
+				pos = pos.subtract(L.point(subtractX, -Math.abs(offset.y), true));
 			}
 		}
 		else if(canGoSideway) {
-			var offsetY = tooltipHeight / 2;
-			if(tooltipPoint.y - offsetY < 0) { // top overflow
-				offsetY = tooltipPoint.y;
+			var subtractY = tooltipHeight / 2;
+			if(tooltipPoint.y - subtractY < this.options.mapPadding) { // top overflow
+				subtractY = tooltipPoint.y - this.options.mapPadding;
 			}		
-			if(tooltipPoint.y + tooltipHeight / 2 > 2*centerPoint.y) { // bottom overflow
-				offsetY = tooltipHeight - 2*centerPoint.y + tooltipPoint.y;
+			if(tooltipPoint.y + tooltipHeight / 2 > 2*centerPoint.y - this.options.mapPadding) { // bottom overflow
+				subtractY = tooltipHeight - 2*centerPoint.y + tooltipPoint.y + this.options.mapPadding;
 			}			
 			if(/w/.test(posQuadrant)) {
-				pos = pos.subtract(L.point(0, offsetY, true));
+				pos = pos.subtract(L.point(-Math.abs(offset.x), subtractY, true));
 			}
 			else {
-				pos = pos.subtract(L.point(tooltipWidth , offsetY, true));
+				pos = pos.subtract(L.point(tooltipWidth + Math.abs(offset.x), subtractY, true));
 			}
 		}
 		
