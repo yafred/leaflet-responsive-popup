@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	
-	<title>Responsive Popup by YaFred</title>
-	
-	<script src="http://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
-	
-	<script src="/assets/leaflet.responsive.popup-src.js"></script>
-</head>
-<body>
+---
+layout: default
+permalink: /index.html
+---
 
 <div style="float: left; margin-right: 20px">
     <h2>Standard L.Popup</h2>
@@ -130,19 +119,3 @@
         });
     </script>
 </div>
-
-
-
-	<!-- analytics -->
-    <script>
-if(window.location.hostname != "localhost") {
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-21317761-7', 'auto');
-ga('send', 'pageview');
-}
-    </script>
-</body>
