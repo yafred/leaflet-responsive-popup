@@ -113,7 +113,12 @@ L.ResponsivePopup = L.Popup.extend({
 			pos = pos.subtract(L.point(tooltipWidth / 2, tooltipHeight / 2));
 		}
 		
-		L.DomUtil.setPosition(this._container, pos);
+		L.DomUtil.setPosition(container, pos);
+		
+		// if point is not visible, just hide the popup
+		if(tooltipPoint.x < 0 || tooltipPoint.y < 0 || tooltipPoint.x > mapSize.x || tooltipPoint.y > mapSize.y) {
+			container.style.display = 'none';
+		}
 	}
 	
 });
