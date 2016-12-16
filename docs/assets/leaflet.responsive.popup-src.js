@@ -1,8 +1,12 @@
 L.ResponsivePopup = L.Popup.extend({
 		
 	options: {
-		// min distance between an edge of the popup and a border of the map
-		mapPadding: 10
+		// min distance in pixels between an edge of the popup and a border of the map
+		mapPadding: 10,
+		// preferred position for the popup
+		// - auto: direction will depend on the quadrant the pointed object is
+		// - top, bottom, left, right: if there is enough room, the popup will be positioned according to this choice
+		preferredPosition: 'auto'
 	},
 	
 	/**
@@ -53,9 +57,9 @@ L.ResponsivePopup = L.Popup.extend({
 	        tooltipPoint = map.layerPointToContainerPoint(pos),
 	        tooltipWidth = container.offsetWidth,
 	        tooltipHeight = container.offsetHeight,
-	        direction = this.options.direction,   // do we need to pull this from posQuadrant ?
-	        offset = L.point(this.options.offset), // needs support
-	        anchor = this._getAnchor();  // needs support
+	        direction = this.options.direction,   
+	        offset = L.point(this.options.offset), 
+	        anchor = this._getAnchor();  
 	    
 		// which quadrant
 		var posQuadrant = "";
