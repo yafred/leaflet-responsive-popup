@@ -20,7 +20,7 @@ Here is a [Demo](https://yafred.github.io/leaflet-responsive-popup/default-marke
 ### bind a L.ResponsivePopup to your markers
 
 ```javascript
-var popup = L.responsivePopup({ autoPan: false, offset: [15, 25]}).setContent('A pretty CSS3 responsive popup.<br> Easily customizable.');
+var popup = L.responsivePopup().setContent('A pretty CSS3 responsive popup.<br> Easily customizable.');
 L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map).bindPopup(popup);
 ```
 
