@@ -7,8 +7,23 @@ This plugin overrides [L.Popup](http://leafletjs.com/reference-1.0.2.html#popup)
 
 Here is a [Demo](https://yafred.github.io/leaflet-responsive-popup/default-marker).
 
+## Usage
+
+```html
+	<script src="http://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+	
+	<script src="leaflet.responsive.popup-src.js"></script>
+```
+
+```javascript
+    	var popup = L.responsivePopup({ autoPan: false, offset: [15, 25]}).setContent('A pretty CSS3 responsive popup.<br> Easily customizable.');
+    	L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map).bindPopup(popup);
+```
 
 
+## Notes
+Needs at least Leaflet 1.0
 
 This was inspired by [Rrose: A Leaflet Plugin for Edge Cases](https://github.com/erictheise/rrose).
 
