@@ -18,7 +18,8 @@ var myIcon = new L.Icon.Default({ popupAnchor: [1, -20] });
         	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     	}).addTo(map1);
     	
-    	L.marker([48.850258, 2.351074]).addTo(map1).bindPopup('A pretty CSS3 popup.<br> Easily customizable.');
+    	var popup1 = L.popup({ autoPan: false }).setContent('A pretty CSS3 popup.<br> Easily customizable.');   	
+    	L.marker([48.850258, 2.351074]).addTo(map1).bindPopup(popup1);
     </script>
  </div>
  
