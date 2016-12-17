@@ -11,7 +11,7 @@ Here is a [Demo](https://yafred.github.io/leaflet-responsive-popup/default-marke
 
 ### include leaflet.responsive.popup-src.js
 ```html
-<script src="http://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 	
 <script src="leaflet.responsive.popup-src.js"></script>
