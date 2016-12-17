@@ -9,16 +9,19 @@ Here is a [Demo](https://yafred.github.io/leaflet-responsive-popup/default-marke
 
 ## Usage
 
+### include leaflet.responsive.popup-src.js
 ```html
-	<script src="http://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+<script src="http://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 	
-	<script src="leaflet.responsive.popup-src.js"></script>
+<script src="leaflet.responsive.popup-src.js"></script>
 ```
 
+### bind a L.ResponsivePopup to your markers
+
 ```javascript
-    	var popup = L.responsivePopup({ autoPan: false, offset: [15, 25]}).setContent('A pretty CSS3 responsive popup.<br> Easily customizable.');
-    	L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map).bindPopup(popup);
+var popup = L.responsivePopup({ autoPan: false, offset: [15, 25]}).setContent('A pretty CSS3 responsive popup.<br> Easily customizable.');
+L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map).bindPopup(popup);
 ```
 
 
