@@ -83,23 +83,27 @@ L.ResponsivePopup = L.Popup.extend({
 		}
 		
 		// manage overflows
-		var subtractX = containerWidth / 2,
-		    subtractY = containerHeight / 2;
+		var subtractX = containerWidth / 2 - anchor.x,
+		    subtractY = containerHeight / 2 - anchor.y;
 		
 		if(canGoTop || canGoBottom) {		
-			if(basePoint.x + anchor.x - subtractX < Math.abs(paddingTL.x)) { // left overflow
-				subtractX = basePoint.x + anchor.x - Math.abs(paddingTL.x);
-			}
-			if(basePoint.x + anchor.x + containerWidth / 2 > mapSize.x - Math.abs(paddingBR.x)) { // right overflow
-				subtractX = containerWidth - mapSize.x + basePoint.x + anchor.x + Math.abs(paddingBR.x);
-			}
+			var containerLeft = basePoint.x + anchor.x - (containerWidth / 2);
+			var containerRight = basePoint.x + anchor.x + (containerWidth / 2);
+			if(containerLeft < Math.abs(paddingTL.x)) { // left overflow
+				subtractX = containerWidth / 2 - anchor.x - Math.abs(paddingTL.x) + containerLeft;
+			}		
+			if(containerRight > mapSize.x - Math.abs(paddingBR.x)) { // right overflow
+				subtractX = containerWidth / 2 - anchor.x + containerRight - mapSize.x + Math.abs(paddingBR.x);
+			}						
 		}	
 		if(canGoLeft || canGoRight) {
-			if(basePoint.y + anchor.y - subtractY < Math.abs(paddingTL.y)) { // top overflow
-				subtractY = basePoint.y + anchor.y - Math.abs(paddingTL.y);
+			var containerTop = basePoint.y + anchor.y - (containerHeight / 2);
+			var containerBottom = basePoint.y + anchor.y + (containerHeight / 2);
+			if(containerTop < Math.abs(paddingTL.y)) { // top overflow
+				subtractY = containerHeight / 2 - anchor.y - Math.abs(paddingTL.y) + containerTop;
 			}		
-			if(basePoint.y + anchor.y + containerHeight / 2 > mapSize.y - Math.abs(paddingBR.y)) { // bottom overflow
-				subtractY = containerHeight - mapSize.y + basePoint.y + anchor.y + Math.abs(paddingBR.y);
+			if(containerBottom > mapSize.y - Math.abs(paddingBR.y)) { // bottom overflow
+				subtractY = containerHeight / 2 - anchor.y + containerBottom - mapSize.y + Math.abs(paddingBR.y);
 			}						
 		}
 		
