@@ -10,6 +10,9 @@ Here is a [Demo](https://yafred.github.io/leaflet-responsive-popup/default-marke
 ## Usage
 
 ### include leaflet.responsive.popup-src.js
+
+Download `leaflet.responsive.popup-src.js` (from the root of this repository) and load it in your html page.
+
 ```html
 <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
@@ -24,6 +27,11 @@ var popup = L.responsivePopup().setContent('A pretty CSS3 responsive popup.<br> 
 L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map).bindPopup(popup);
 ```
 
+## Options
+
+### offset
+
+### autoPanPadding
 
 ## Notes
 Needs at least Leaflet 1.0
