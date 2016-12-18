@@ -1,8 +1,13 @@
 L.ResponsivePopup = L.Popup.extend({
 		
 	options: {
-		// min distance in pixels between an edge of the popup and a border of the map
-		mapPadding: 10,
+		/*
+		 * offset
+		 * 
+		 * autoPanPadding
+		 * autoPanPaddingTopLeft
+		 * autoPanPaddingBottomRight
+		 */
 	},
 	
 	/**
@@ -48,9 +53,12 @@ L.ResponsivePopup = L.Popup.extend({
 		var map = this._map,
             container = this._container,
 		    pos = this._map.latLngToLayerPoint(this._latlng),
-	        tooltipPoint = map.layerPointToContainerPoint(pos),
-	        tooltipWidth = container.offsetWidth,
-	        tooltipHeight = container.offsetHeight,
+	        basePoint = map.layerPointToContainerPoint(pos),
+	        containerWidth = container.offsetWidth,
+	        containerHeight = container.offsetHeight,
+		    padding = L.point(this.options.autoPanPadding),
+		    paddingTL = L.point(this.options.autoPanPaddingTopLeft || padding),
+		    paddingBR = L.point(this.options.autoPanPaddingBottomRight || padding),
 	        mapSize = map.getSize(),
 	        anchor = this._getAnchor(),  // popup anchor
         	offset = L.point(this.options.offset); // offset relative to anchor (option from L.DivOverlay. We only use absolute values).
@@ -61,46 +69,46 @@ L.ResponsivePopup = L.Popup.extend({
 		    canGoLeft = true,
 		    canGoRight = true;
 		
-		if(tooltipPoint.y + anchor.y - Math.abs(offset.y) - tooltipHeight - this.options.mapPadding < 0) {
+		if(basePoint.y + anchor.y - Math.abs(offset.y) - containerHeight - Math.abs(paddingTL.y) < 0) {
 			canGoTop = false;
 		}
-		if(tooltipPoint.y + anchor.y + Math.abs(offset.y) + tooltipHeight + this.options.mapPadding > mapSize.y) {
+		if(basePoint.y + anchor.y + Math.abs(offset.y) + containerHeight + Math.abs(paddingBR.y) > mapSize.y) {
 			canGoBottom = false;
 		}
-		if(tooltipPoint.x + anchor.x - Math.abs(offset.x) - tooltipWidth - this.options.mapPadding < 0) {
+		if(basePoint.x + anchor.x - Math.abs(offset.x) - containerWidth - Math.abs(paddingTL.x) < 0) {
 			canGoLeft = false;
 		}
-		if(tooltipPoint.x + anchor.x + Math.abs(offset.x) + tooltipWidth + this.options.mapPadding > mapSize.x) {
+		if(basePoint.x + anchor.x + Math.abs(offset.x) + containerWidth + Math.abs(paddingBR.x) > mapSize.x) {
 			canGoRight = false;
 		}
 		
 		// manage overflows
-		var subtractX = tooltipWidth / 2,
-		    subtractY = tooltipHeight / 2;
+		var subtractX = containerWidth / 2,
+		    subtractY = containerHeight / 2;
 		
 		if(canGoTop || canGoBottom) {		
-			if(tooltipPoint.x + anchor.x - subtractX < this.options.mapPadding) { // left overflow
-				subtractX = tooltipPoint.x + anchor.x - this.options.mapPadding;
+			if(basePoint.x + anchor.x - subtractX < Math.abs(paddingTL.x)) { // left overflow
+				subtractX = basePoint.x + anchor.x - Math.abs(paddingTL.x);
 			}
-			if(tooltipPoint.x + anchor.x + tooltipWidth / 2 > mapSize.x - this.options.mapPadding) { // right overflow
-				subtractX = tooltipWidth - mapSize.x + tooltipPoint.x + anchor.x +this.options.mapPadding;
+			if(basePoint.x + anchor.x + containerWidth / 2 > mapSize.x - Math.abs(paddingBR.x)) { // right overflow
+				subtractX = containerWidth - mapSize.x + basePoint.x + anchor.x + Math.abs(paddingBR.x);
 			}
 		}	
 		if(canGoLeft || canGoRight) {
-			if(tooltipPoint.y + anchor.y - subtractY < this.options.mapPadding) { // top overflow
-				subtractY = tooltipPoint.y + anchor.y - this.options.mapPadding;
+			if(basePoint.y + anchor.y - subtractY < Math.abs(paddingTL.y)) { // top overflow
+				subtractY = basePoint.y + anchor.y - Math.abs(paddingTL.y);
 			}		
-			if(tooltipPoint.y + anchor.y + tooltipHeight / 2 > mapSize.y - this.options.mapPadding) { // bottom overflow
-				subtractY = tooltipHeight - mapSize.y + tooltipPoint.y + anchor.y + this.options.mapPadding;
+			if(basePoint.y + anchor.y + containerHeight / 2 > mapSize.y - Math.abs(paddingBR.y)) { // bottom overflow
+				subtractY = containerHeight - mapSize.y + basePoint.y + anchor.y + Math.abs(paddingBR.y);
 			}						
 		}
 		
 		// position the popup (order of preference is: top, left, bottom, right, centerOnMap)
 		if(canGoTop) {
-			pos = pos.subtract(L.point(subtractX, -anchor.y + tooltipHeight + Math.abs(offset.y), true));
+			pos = pos.subtract(L.point(subtractX, -anchor.y + containerHeight + Math.abs(offset.y), true));
 		}
 		else if(canGoLeft) {
-			pos = pos.subtract(L.point(-anchor.x + tooltipWidth + Math.abs(offset.x), subtractY, true));
+			pos = pos.subtract(L.point(-anchor.x + containerWidth + Math.abs(offset.x), subtractY, true));
 		}
 		else if(canGoBottom) {
 			pos = pos.subtract(L.point(subtractX, -anchor.y - Math.abs(offset.y), true));
@@ -110,13 +118,13 @@ L.ResponsivePopup = L.Popup.extend({
 		}
 		else {
 			pos = this._map.latLngToLayerPoint(this._map.getCenter());
-			pos = pos.subtract(L.point(tooltipWidth / 2, tooltipHeight / 2));
+			pos = pos.subtract(L.point(containerWidth / 2, containerHeight / 2));
 		}
 		
 		L.DomUtil.setPosition(container, pos);
 		
 		// if point is not visible, just hide the popup
-		if(tooltipPoint.x < 0 || tooltipPoint.y < 0 || tooltipPoint.x > mapSize.x || tooltipPoint.y > mapSize.y) {
+		if(basePoint.x < 0 || basePoint.y < 0 || basePoint.x > mapSize.x || basePoint.y > mapSize.y) {
 			container.style.display = 'none';
 		}
 	}
