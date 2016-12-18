@@ -51,6 +51,23 @@ var popup = L.responsivePopup({ autoPanPadding: [10,10] }).setContent('A pretty 
 L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map).bindPopup(popup);
 ```
 
+## Limitations
+
+This first implementation does not show the popup tips.
+
+It is advised to highlight the popup position.
+
+```javascript
+map.on('popupopen',function(e) {
+  e.popup.highlight = L.circleMarker(e.popup.getLatLng(), { radius: 15 , opacity: 0, fillColor: "#000000", fillOpacity: .3 }).addTo(map);
+});
+    	
+map.on('popupclose',function(e) {
+  map.removeLayer(e.popup.highlight);
+});
+```
+
+
 ## Notes
 Needs at least Leaflet 1.0
 
