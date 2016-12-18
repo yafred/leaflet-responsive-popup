@@ -31,9 +31,20 @@ L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map).bindPopup(popup);
 
 ### offset
 
+The offset of the popup position. 
+
+As the position of the popup is not always above, it is slightly different from the L.Popup option.
+
+`offset.x` is used when the popup is either left or right. `offset.y` is used when the popup is either top or bottom.
+
+```javascript
+var popup = L.responsivePopup({ offset: [10,10] }).setContent('A pretty CSS3 responsive popup.<br> Easily customizable.');
+L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map).bindPopup(popup);
+```
+
 ### autoPanPadding
 
-This option defines how much space we allow between the popup and the border of the map before we consider the popup is overflowing. `autoPanPadding.x` is used to prevent left and right overflows, `autoPanPadding.y` is used to prevent top and bottom overflows.
+Space (in pixels) we allow between the popup and the border of the map before we consider the popup is overflowing. `autoPanPadding.x` is used to prevent left and right overflows, `autoPanPadding.y` is used to prevent top and bottom overflows.
 
 ```javascript
 var popup = L.responsivePopup({ autoPanPadding: [10,10] }).setContent('A pretty CSS3 responsive popup.<br> Easily customizable.');
