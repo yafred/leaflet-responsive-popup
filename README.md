@@ -57,6 +57,8 @@ This first implementation does not show the popup tips.
 
 It is advised to highlight the popup position.
 
+![Leaflet L.ResponsivePopup](https://yafred.github.io/leaflet-responsive-popup/assets/images/leaflet-responsive-popup.png)
+
 ```javascript
 map.on('popupopen',function(e) {
   e.popup.highlight = L.circleMarker(e.popup.getLatLng(), { radius: 15 , opacity: 0, fillColor: "#000000", fillOpacity: .3 }).addTo(map);
