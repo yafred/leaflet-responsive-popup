@@ -33,6 +33,14 @@ L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map).bindPopup(popup);
 
 ### autoPanPadding
 
+This option defines how much space we allow between the popup and the border of the map before we consider the popup is overflowing. `offset.x` is used to prevent left and right overflows, `offset.y` is used to prevent top and bottom overflows.
+
+
+```javascript
+var popup = L.responsivePopup({ offset: [10,10] }).setContent('A pretty CSS3 responsive popup.<br> Easily customizable.');
+L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map).bindPopup(popup);
+```
+
 ## Notes
 Needs at least Leaflet 1.0
 
