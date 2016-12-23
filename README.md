@@ -5,7 +5,7 @@ This plugin overrides [L.Popup](http://leafletjs.com/reference-1.0.2.html#popup)
 ![Leaflet L.Popup](https://yafred.github.io/leaflet-responsive-popup/assets/images/leaflet-popup.png)
 ![Leaflet L.ResponsivePopup](https://yafred.github.io/leaflet-responsive-popup/assets/images/leaflet-responsive-popup.png)
 
-Here is a [Demo](https://yafred.github.io/leaflet-responsive-popup/default-marker).
+Here is a [Demo](https://yafred.github.io/leaflet-responsive-popup/default-marker) and a [use case](http://www.franceimage.com/map/).
 
 ## Usage
 
@@ -55,7 +55,11 @@ L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map).bindPopup(popup);
 
 This first implementation does not show the popup tips.
 
-It is advised to highlight the popup position.
+You can either change the icon of the marker 
+
+![Leaflet L.ResponsivePopup](https://yafred.github.io/leaflet-responsive-popup/assets/images/change-marker-icon.png)
+
+or add another marker to highlight the marker's position.
 
 ![Leaflet L.ResponsivePopup](https://yafred.github.io/leaflet-responsive-popup/assets/images/leaflet-responsive-popup.png)
 
