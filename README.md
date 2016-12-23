@@ -1,6 +1,7 @@
 ## Leaflet Responsive Popup
 
-This plugin overrides [L.Popup](http://leafletjs.com/reference-1.0.2.html#popup) to remove the need to move the map to be able to see the content of the popup. This happens when opening a popup near an edge of the map.
+This plugin removes the need to move the map to be able to see the content of the popup. This happens when opening a popup near an edge of the map.
+The implementation overrides [L.Popup](http://leafletjs.com/reference-1.0.2.html#popup).
 
 ![Leaflet L.Popup](https://yafred.github.io/leaflet-responsive-popup/assets/images/leaflet-popup.png)
 ![Leaflet L.ResponsivePopup](https://yafred.github.io/leaflet-responsive-popup/assets/images/leaflet-responsive-popup.png)
