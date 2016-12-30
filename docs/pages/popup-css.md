@@ -9,7 +9,7 @@ permalink: /popup-css
     <p>This work on progress ...</p>
     <div class="leaflet-container" style="width: 450px; height: 400px; margin-bottom:20px; background-color: #C0ffC0;">
     
-       <div class="leaflet-popup leaflet-zoom-animated" style="margin-top: 80px; margin-left: 130px">
+       <div class="leaflet-popup leaflet-zoom-animated" style="margin-top: 50px; margin-left: 160px">
           <a href="#close" class="leaflet-popup-close-button leaflet-resp-popup-close-button-s">×</a>
           <div class="leaflet-popup-tip-container leaflet-resp-popup-tip-container-s">
              <div class="leaflet-popup-tip leaflet-resp-popup-tip-s"></div>
@@ -32,7 +32,7 @@ permalink: /popup-css
        <div class="leaflet-popup leaflet-zoom-animated" style="margin-top: 150px; margin-left: 30px">
           <a href="#close" class="leaflet-popup-close-button">×</a>
           <div class="leaflet-popup-content-wrapper">
-             <div class="leaflet-popup-content">Towards east.</div>
+             <div class="leaflet-popup-content">Towards<br/>east<br/>...</div>
           </div>
           <div class="leaflet-popup-tip-container leaflet-resp-popup-tip-container-e">
              <div class="leaflet-popup-tip leaflet-resp-popup-tip-e"></div>
@@ -62,7 +62,7 @@ permalink: /popup-css
        <div class="leaflet-popup leaflet-zoom-animated" style="margin-top: 150px; margin-left: 280px">
           <a href="#close" class="leaflet-popup-close-button">×</a>
           <div class="leaflet-popup-content-wrapper">
-             <div class="leaflet-popup-content">Towards west.</div>
+             <div class="leaflet-popup-content">Towards<br/>west<br/>...</div>
           </div>
           <div class="leaflet-popup-tip-container leaflet-resp-popup-tip-container-w">
              <div class="leaflet-popup-tip leaflet-resp-popup-tip-w"></div>
@@ -79,7 +79,7 @@ permalink: /popup-css
           </div>
        </div>
       
-       <div class="leaflet-popup leaflet-zoom-animated" style="margin-top: 230px; margin-left: 130px">
+       <div class="leaflet-popup leaflet-zoom-animated" style="margin-top: 270px; margin-left: 160px">
           <a href="#close" class="leaflet-popup-close-button">×</a>
           <div class="leaflet-popup-content-wrapper">
              <div class="leaflet-popup-content">Towards north.</div>
