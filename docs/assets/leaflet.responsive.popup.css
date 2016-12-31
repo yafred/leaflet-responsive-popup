@@ -22,12 +22,13 @@
 
 /* West */
 .leaflet-resp-popup-tip-container-w {
-	width: 20px;
-	margin-left: 0;
+	width: 40px;
+	right: 0;	
 	margin-right: -20px;
 	left: 100%;
-	right: 0;
-	top: 25%; // needs adjusting in javascript
+	margin-left: -2px;
+	top: 50%;
+	margin-top: -11px;
 }
 
 .leaflet-resp-popup-tip-w {
@@ -39,8 +40,9 @@
 /* East */
 .leaflet-resp-popup-tip-container-e {
 	width: 20px;
-	left: 0;
-	top: 25%; // needs adjusting in javascript
+	left: 2px;
+	top: 50%;
+	margin-top: -11px;
 }
 
 .leaflet-resp-popup-tip-e {
