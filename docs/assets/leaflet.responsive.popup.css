@@ -5,25 +5,25 @@
 
 
 /* North */
-.leaflet-resp-popup-tip-n {
+.leaflet-resp-popup-north .leaflet-popup-tip {
 	box-shadow: none;
 }
 
 
 /* South */
-.leaflet-resp-popup-tip-container-s {
+.leaflet-resp-popup-south .leaflet-popup-tip-container {
 	top: 0;
 	margin-top: -20px;
 }
 
-.leaflet-resp-popup-tip-s {
+.leaflet-resp-popup-south .leaflet-popup-tip {
 	margin: 11px auto 0;
 	box-shadow: none;
 }
 
 
 /* West */
-.leaflet-resp-popup-tip-container-w {
+.leaflet-resp-popup-west .leaflet-popup-tip-container {
 	right: 0;	
 	margin-right: -20px;
 	left: 100%;
@@ -32,89 +32,93 @@
 	margin-top: -11px;
 }
 
-.leaflet-resp-popup-tip-w {
+.leaflet-resp-popup-west .leaflet-popup-tip {
 	margin: 0 -11px;
 	box-shadow: none;
 }
 
 
 /* East */
-.leaflet-resp-popup-tip-container-e {
+.leaflet-resp-popup-east .leaflet-popup-tip-container {
 	width: 20px;
 	left: 2px;
 	top: 50%;
 	margin-top: -11px;
 }
 
-.leaflet-resp-popup-tip-e {
+.leaflet-resp-popup-east .leaflet-popup-tip {
 	margin: 0 11px;
 	box-shadow: none;
 }
 
 
 /* South-East */
-.leaflet-resp-popup-tip-container-se {
+.leaflet-resp-popup-south-east .leaflet-popup-tip-container {
 	left: 0;
 	margin-left: 0;
 	top: 0;
 	margin-top: -20px;
 }
 
-.leaflet-resp-popup-tip-se {
+.leaflet-resp-popup-south-east .leaflet-popup-tip {
 	margin: 11px 11px 11px -8px;
 	box-shadow: none;
 }
 
-.leaflet-resp-popup-content-wrapper-se {
+.leaflet-resp-popup-south-east .leaflet-popup-content-wrapper {
     border-radius: 0 20px 20px 20px;
 }
 
 
 /* East-South */
-.leaflet-resp-popup-tip-container-es {
+.leaflet-resp-popup-east-south .leaflet-popup-tip-container {
 	width: 20px;
 	left: 0;
 	top: 0;
 }
 
-.leaflet-resp-popup-tip-es {
+.leaflet-resp-popup-east-south .leaflet-popup-tip {
 	margin: -11px 11px;
 	box-shadow: none;
 }
 
+.leaflet-resp-popup-east-south .leaflet-popup-content-wrapper {
+    border-radius: 0 20px 20px 20px;
+}
+
 
 /* North-East */
-.leaflet-resp-popup-tip-container-ne {
+.leaflet-resp-popup-north-east .leaflet-popup-tip-container {
 	left: 0;
 	margin-left: 0;
 	margin-top: -1px;
 }
 
-.leaflet-resp-popup-tip-ne {
+.leaflet-resp-popup-north-east .leaflet-popup-tip {
 	margin: -8px 11px 11px -8px;
 	box-shadow: none;
 }
 
-.leaflet-resp-popup-content-wrapper-ne {
+.leaflet-resp-popup-north-east .leaflet-popup-content-wrapper {
     border-radius: 20px 20px 20px 0;
 }
 
 
 /* East-North */
-.leaflet-resp-popup-tip-container-en {
+.leaflet-resp-popup-east-north .leaflet-popup-tip-container {
 	left: 0;
 	margin-left: -20px;
 	margin-top: -20px;
 }
 
-.leaflet-resp-popup-tip-en {
+.leaflet-resp-popup-east-north .leaflet-popup-tip {
 	margin: 11px 11px 11px 11px;
 	box-shadow: none;
 }
 
 
 /* North-West */
-.leaflet-resp-popup-tip-container-nw {
+.leaflet-resp-popup-north-west .leaflet-popup-tip-container {
 	width: 20px;
 	margin-right: 0;
 	margin-top: -1px;
@@ -122,49 +126,54 @@
 	right: 0;
 }
 
-.leaflet-resp-popup-tip-nw {
+.leaflet-resp-popup-north-west .leaflet-popup-tip {
 	margin: -8px 11px 11px 11px;
 	box-shadow: none;
 }
 
-.leaflet-resp-popup-content-wrapper-nw {
+.leaflet-resp-popup-north-west .leaflet-popup-content-wrapper {
     border-radius: 20px 20px 0 20px;
 }
 
 
 /* West-North */
-.leaflet-resp-popup-tip-container-wn {
+.leaflet-resp-popup-west-north .leaflet-popup-tip-container {
 	margin-left: 0;
 	margin-top: -20px;
 	left: 100%;
 	right: 0;
 }
 
-.leaflet-resp-popup-tip-wn {
+.leaflet-resp-popup-west-north .leaflet-popup-tip {
 	margin: 11px 11px 0px -11px;
 	box-shadow: none;
 }
 
+.leaflet-resp-popup-west-north .leaflet-popup-content-wrapper {
+    border-radius: 20px 20px 0 20px;
+}
+
 
 /* South-West */
-.leaflet-resp-popup-tip-container-sw {
+.leaflet-resp-popup-south-west .leaflet-popup-tip-container {
 	width: 20px;
 	left: 100%;
 	top: 0;
 	margin-top: -20px;
 }
 
-.leaflet-resp-popup-tip-sw {
+.leaflet-resp-popup-south-west .leaflet-popup-tip {
 	margin: 11px 11px 11px 11px;
 	box-shadow: none;
 }
-.leaflet-resp-popup-content-wrapper-sw {
+
+.leaflet-resp-popup-south-west .leaflet-popup-content-wrapper {
 	border-radius: 20px 0 20px 20px;
 }
 
 
 /* West-South */
-.leaflet-resp-popup-tip-container-ws {
+.leaflet-resp-popup-west-south .leaflet-popup-tip-container {
 	margin-left: 0;
 	margin-right: -20px;
 	left: 100%;
@@ -172,7 +181,11 @@
 	top: 0;
 }
 
-.leaflet-resp-popup-tip-ws {
+.leaflet-resp-popup-west-south .leaflet-popup-tip {
 	margin: -11px -11px;
 	box-shadow: none;
+}
+
+.leaflet-resp-popup-west-south .leaflet-popup-content-wrapper {
+	border-radius: 20px 0 20px 20px;
 }
