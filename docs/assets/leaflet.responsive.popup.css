@@ -1,3 +1,8 @@
+/*
+ leaflet.responsive.popup
+ (c) 2017 https://github.com/yafred
+*/
+
 
 /* North */
 .leaflet-resp-popup-tip-n {
@@ -7,7 +12,8 @@
 
 /* South */
 .leaflet-resp-popup-tip-container-s {
-	position: relative;	
+	top: 0;
+	margin-top: -20px;
 }
 
 .leaflet-resp-popup-tip-s {
@@ -22,7 +28,6 @@
 
 /* West */
 .leaflet-resp-popup-tip-container-w {
-	width: 40px;
 	right: 0;	
 	margin-right: -20px;
 	left: 100%;
@@ -53,9 +58,9 @@
 
 /* South-East */
 .leaflet-resp-popup-tip-container-se {
-	width: 20px;
 	left: 0;
 	margin-left: 0;
+	top: 0;
 	margin-top: -20px;
 }
 
@@ -84,7 +89,6 @@
 
 /* North-East */
 .leaflet-resp-popup-tip-container-ne {
-	width: 20px;
 	left: 0;
 	margin-left: 0;
 	margin-top: -1px;
@@ -102,7 +106,6 @@
 
 /* East-North */
 .leaflet-resp-popup-tip-container-en {
-	width: 20px;
 	left: 0;
 	margin-left: -20px;
 	margin-top: -20px;
@@ -135,7 +138,6 @@
 
 /* West-North */
 .leaflet-resp-popup-tip-container-wn {
-	width: 20px;
 	margin-left: 0;
 	margin-top: -20px;
 	left: 100%;
@@ -152,7 +154,7 @@
 .leaflet-resp-popup-tip-container-sw {
 	width: 20px;
 	left: 100%;
-	right: 0;
+	top: 0;
 	margin-top: -20px;
 }
 
@@ -167,7 +169,6 @@
 
 /* West-South */
 .leaflet-resp-popup-tip-container-ws {
-	width: 20px;
 	margin-left: 0;
 	margin-right: -20px;
 	left: 100%;

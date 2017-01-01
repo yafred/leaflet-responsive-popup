@@ -1,12 +1,19 @@
+/*
+ leaflet.responsive.popup
+ (c) 2017 https://github.com/yafred
+*/
+
 L.ResponsivePopup = L.Popup.extend({
 		
 	options: {
 		/*
-		 * offset
+		 * Inherited from L.Popup
 		 * 
-		 * autoPanPadding
-		 * autoPanPaddingTopLeft
-		 * autoPanPaddingBottomRight
+		 * - offset
+		 * 
+		 * - autoPanPadding
+		 * - autoPanPaddingTopLeft
+		 * - autoPanPaddingBottomRight
 		 */
 	},
 	

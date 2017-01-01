@@ -12,31 +12,31 @@ permalink: /popup-css
     
        <div class="leaflet-popup leaflet-zoom-animated" style="margin-top: 50px; margin-left: 160px">
           <a href="#close" class="leaflet-popup-close-button leaflet-resp-popup-close-button-s">×</a>
-          <div class="leaflet-popup-tip-container leaflet-resp-popup-tip-container-s">
-             <div class="leaflet-popup-tip leaflet-resp-popup-tip-s"></div>
-          </div>
           <div class="leaflet-popup-content-wrapper">
              <div class="leaflet-popup-content">Towards south.</div>
+          </div>
+           <div class="leaflet-popup-tip-container leaflet-resp-popup-tip-container-s">
+             <div class="leaflet-popup-tip leaflet-resp-popup-tip-s"></div>
           </div>
        </div>       
        
        <div class="leaflet-popup leaflet-zoom-animated" style="margin-top: 20px; margin-left: 20px">
           <a href="#close" class="leaflet-popup-close-button">×</a>
-          <div class="leaflet-popup-tip-container leaflet-resp-popup-tip-container-se">
-             <div class="leaflet-popup-tip leaflet-resp-popup-tip-se"></div>
-          </div>
           <div class="leaflet-popup-content-wrapper leaflet-resp-popup-content-wrapper-se">
              <div class="leaflet-popup-content">Towards south / east.</div>
+          </div>
+           <div class="leaflet-popup-tip-container leaflet-resp-popup-tip-container-se">
+             <div class="leaflet-popup-tip leaflet-resp-popup-tip-se"></div>
           </div>
        </div>
 
        <div class="leaflet-popup leaflet-zoom-animated" style="margin-top: 20px; margin-left: 280px">
           <a href="#close" class="leaflet-popup-close-button">×</a>
-          <div class="leaflet-popup-tip-container leaflet-resp-popup-tip-container-sw">
-             <div class="leaflet-popup-tip leaflet-resp-popup-tip-sw"></div>
-          </div>
           <div class="leaflet-popup-content-wrapper leaflet-resp-popup-content-wrapper-sw">
              <div class="leaflet-popup-content">Towards south / west.</div>
+           <div class="leaflet-popup-tip-container leaflet-resp-popup-tip-container-sw">
+             <div class="leaflet-popup-tip leaflet-resp-popup-tip-sw"></div>
+          </div>
           </div>
        </div>
 
