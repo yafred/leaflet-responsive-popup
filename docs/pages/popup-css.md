@@ -6,11 +6,10 @@ permalink: /popup-css
 
 <div style="clear: left">
     <h2>Responsive Popup CSS</h2>
-    <p>This work on progress ...</p>
     <div class="leaflet-container" style="width: 450px; height: 450px; margin-bottom:20px; background-color: #C0ffC0;">
     
     
-       <div class="leaflet-popup leaflet-zoom-animated" style="margin-top: 50px; margin-left: 160px">
+       <div class="leaflet-popup leaflet-zoom-animated" style="margin-top: 80px; margin-left: 160px">
           <a href="#close" class="leaflet-popup-close-button leaflet-resp-popup-close-button-s">×</a>
           <div class="leaflet-popup-content-wrapper">
              <div class="leaflet-popup-content">Towards south.</div>

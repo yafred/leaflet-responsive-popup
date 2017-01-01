@@ -21,10 +21,6 @@
 	box-shadow: none;
 }
 
-.leaflet-container a.leaflet-resp-popup-close-button-s {
-	top: 20px;
-}
-
 
 /* West */
 .leaflet-resp-popup-tip-container-w {
