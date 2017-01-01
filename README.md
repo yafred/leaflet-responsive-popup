@@ -12,8 +12,6 @@ Here is a [demo](https://yafred.github.io/leaflet-responsive-popup/default-marke
 
 ### include leaflet and leaflet-responsive-popup
 
-Download `leaflet.responsive.popup.js` (from the root of this repository).
-
 ```html
 <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
