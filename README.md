@@ -10,15 +10,15 @@ Here is a [demo](https://yafred.github.io/leaflet-responsive-popup/default-marke
 
 ## Usage
 
-### include leaflet.responsive.popup.js
+### include leaflet and leaflet-responsive-popup
 
-Download `leaflet.responsive.popup.js` (from the root of this repository) and load it in your html page.
+Download `leaflet.responsive.popup.js` (from the root of this repository).
 
 ```html
 <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 	
-<script src="leaflet.responsive.popup.js"></script>
+<script src="https://unpkg.com/leaflet-responsive-popup@0.1.0/leaflet.responsive.popup.js"></script>
 ```
 
 ### bind a L.ResponsivePopup to your markers
