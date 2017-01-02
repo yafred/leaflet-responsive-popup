@@ -3,11 +3,13 @@ layout: default
 permalink: /popup-css
 ---
 
+<div class="callout secondary" style="margin-top: 20px">
+<h3>CSS for popup tips.</h3>
+<p>This is work in progress ...</p>
+</div>
 
-<div style="clear: left">
-    <h2>Responsive Popup CSS</h2>
+<div>
     <div class="leaflet-container" style="width: 450px; height: 450px; margin-bottom:20px; background-color: #C0ffC0;">
-    
     
        <div class="leaflet-popup leaflet-zoom-animated leaflet-resp-popup-south" style="margin-top: 80px; margin-left: 160px">
           <a href="#close" class="leaflet-popup-close-button">×</a>
@@ -142,4 +144,4 @@ permalink: /popup-css
        </div>
        
     </div> 
-</div> 
+</div>

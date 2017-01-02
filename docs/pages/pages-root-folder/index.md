@@ -3,18 +3,20 @@ layout: default
 permalink: /index.html
 ---
 
-## Leaflet Responsive Popup
+<h3>Leaflet Responsive Popup</h3>
 
 If you don't want the map to move to show the popup, you need L.ResponsivePopup
 
-![Leaflet L.Popup]({{ '/assets/images/leaflet-popup.png' | absolute_url }})
-![Leaflet L.ResponsivePopup]({{ '/assets/images/leaflet-responsive-popup.png' | absolute_url }})
+<img class="thumbnail" src="{{ '/assets/images/leaflet-popup.png' | absolute_url }}"/>
+<img class="thumbnail" src="{{ '/assets/images/leaflet-responsive-popup.png' | absolute_url }}"/>
 
-Here is a [Demo]({{ '/default-marker' | absolute_url }}).
+<p>
+Here is a <a href="{{ '/default-marker' | absolute_url }}">Demo</a>.
+</p>
 
-## Usage
+<h3>Usage</h3>
 
-Check this github [repository](https://github.com/yafred/leaflet-responsive-popup)
+Check this github <a href="https://github.com/yafred/leaflet-responsive-popup">repository</a>
 
 
  

@@ -3,9 +3,13 @@ layout: default
 permalink: /circle-marker
 ---
 
+<div class="callout secondary" style="margin-top: 20px">
+<h3>Click on the maps to open a popup.</h3>
+</div>
+
 <div style="float: left; margin-right: 20px">
-    <h2>Standard L.Popup</h2>
-    <p>Click on the map to show a standard leaflet popup.</p>
+    <h3>Standard L.Popup</h3>
+    <p>Click near an edge or in a corner.</p>
     <div id="map1" style="height:400px; width:400px; margin-bottom: 20px;"></div>
     <script type="text/javascript">
         var map1 = L.map('map1').setView([48.850258, 2.351074], 11);
@@ -33,8 +37,8 @@ permalink: /circle-marker
  </div>
     
 <div style="float: left; margin-right: 20px">
-    <h2>Responsive Popup - No tip</h2>
-    <p>Click on the map to show a responsive popup.</p>
+    <h3>Responsive Popup</h3>
+    <p>Click near an edge or in a corner.</p>
     <div id="map2" style="height:400px; width:400px; margin-bottom: 20px;"></div>
     <script type="text/javascript">
         var map2 = L.map('map2').setView([48.850258, 2.351074], 11);
@@ -62,9 +66,9 @@ permalink: /circle-marker
 </div>
 
 <div style="float: left; margin-right: 20px">
-    <h2>Responsive Popup - Landscape</h2>
-    <p>Click on the map to show a responsive popup.</p>
-    <div id="map3" style="height:400px; width:400px; margin-bottom: 20px;"></div>
+    <h3>Landscape</h3>
+    <p>Landscape popup on a Portrait map.</p>
+    <div id="map3" style="height:500px; width:300px; margin-bottom: 20px;"></div>
     <script type="text/javascript">
         var map3 = L.map('map3').setView([48.850258, 2.351074], 11);
     	// create the tile layer with correct attribution
@@ -73,7 +77,7 @@ permalink: /circle-marker
     	}).addTo(map3);
     	
     	map3.on('click',function(e) {
-            L.responsivePopup({ autoPan: false, offset: [11, 11]}).setContent('<div style="text-align: center; height: 160px; width: 300px">' + e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6) + '</div>')
+            L.responsivePopup({ autoPan: false, offset: [11, 11]}).setContent('<div style="text-align: center; height: 100px; width: 200px">' + e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6) + '</div>')
                      .setLatLng(e.latlng)
                      .openOn(map3);
         });
@@ -92,8 +96,8 @@ permalink: /circle-marker
 
 
 <div style="float: left; margin-right: 20px">
-    <h2>Responsive Popup - Portrait</h2>
-    <p>Click on the map to show a responsive popup.</p>
+    <h3>Portrait</h3>
+    <p>Portrait popup on a Landscape map.</p>
     <div id="map4" style="height:300px; width:500px; margin-bottom: 20px;"></div>
     <script type="text/javascript">
         var map4 = L.map('map4').setView([48.850258, 2.351074], 11);
