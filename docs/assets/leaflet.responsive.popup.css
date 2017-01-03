@@ -33,7 +33,7 @@
 }
 
 .leaflet-resp-popup-west .leaflet-popup-tip {
-	margin: 0 -11px;
+	margin: 1px -8px 0 -8px;
 	box-shadow: none;
 }
 
@@ -78,7 +78,7 @@
 }
 
 .leaflet-resp-popup-east-south .leaflet-popup-tip {
-	margin: -11px 11px;
+	margin: -8px 11px;
 	box-shadow: none;
 }
 
@@ -145,7 +145,7 @@
 }
 
 .leaflet-resp-popup-west-north .leaflet-popup-tip {
-	margin: 11px 11px 0px -11px;
+	margin: 11px 11px 0px -8px;
 	box-shadow: none;
 }
 
@@ -182,7 +182,7 @@
 }
 
 .leaflet-resp-popup-west-south .leaflet-popup-tip {
-	margin: -11px -11px;
+	margin: -8px;
 	box-shadow: none;
 }
 
