@@ -2,16 +2,18 @@
   <div class="top-bar-title">
     <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
       <button class="menu-icon dark" type="button" data-toggle></button>
-    </span>
+    </span> 
     <strong>Leaflet Responsive Popup</strong>
   </div>
   <div id="responsive-menu">
     <div class="top-bar-right">
-      <ul class="menu vertical medium-horizontal">
-        <li><a href="{{ '/index.html' | absolute_url }}">Home</a></li>
-        <li><a href="{{ '/default-marker' | absolute_url }}">Demo1</a></li>
-        <li><a href="{{ '/circle-marker' | absolute_url }}">Demo2</a></li>
-        <li><a href="{{ '/popup-css' | absolute_url }}">Future</a></li>
+      <!-- not for small -->
+      <ul class="show-for-medium dropdown menu" data-dropdown-menu>
+        {% include _main_menu.html %}
+      </ul>
+      <!-- for small -->
+      <ul class="hide-for-medium vertical menu" data-drilldown>
+        {% include _main_menu.html %}
       </ul>
     </div>
   </div>
