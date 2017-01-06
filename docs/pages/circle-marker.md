@@ -4,12 +4,12 @@ permalink: /circle-marker
 ---
 
 <div class="callout secondary" style="margin-top: 20px">
-<h3>Click on the maps to open a popup.</h3>
+<h3>Move the maps and click on the markers to open a popup (no tip).</h3>
 </div>
 
 <div style="float: left; margin-right: 20px">
     <h3>Standard L.Popup</h3>
-    <p>Click near an edge or in a corner.</p>
+    <p>Click on the marker when it is near an edge or in a corner.</p>
     <div id="map1" style="height:400px; width:400px; margin-bottom: 20px;"></div>
     <script type="text/javascript">
         var map1 = L.map('map1').setView([48.850258, 2.351074], 11);
@@ -18,27 +18,14 @@ permalink: /circle-marker
         	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     	}).addTo(map1);
     	
-    	map1.on('click',function(e) {
-            L.popup({ autoPan: false}).setContent(e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6))
-                     .setLatLng(e.latlng)
-                     .openOn(map1);
-        });
-    	
-    	map1.on('popupopen',function(e) {
-    		e.popup.marker1 = L.circleMarker(e.popup.getLatLng(), { radius: 2 , color: "#0000ff" }).addTo(map1);
-    		e.popup.marker2 = L.circleMarker(e.popup.getLatLng(), { radius: 10 , color: "#ff0000" }).addTo(map1);
-        });
-    	
-    	map1.on('popupclose',function(e) {
-    		map1.removeLayer(e.popup.marker1);
-    		map1.removeLayer(e.popup.marker2);
-        });
+    	var popup1 = L.popup({ autoPan: false }).setContent('A pretty CSS3 popup.<br> Easily customizable.');   	
+    	L.marker([48.850258, 2.351074]).addTo(map1).bindPopup(popup1);
     </script>
  </div>
-    
-<div style="float: left; margin-right: 20px">
+ 
+ <div style="float: left; margin-right: 20px">
     <h3>Responsive Popup</h3>
-    <p>Click near an edge or in a corner.</p>
+    <p>Click on the marker when it is near an edge or in a corner.</p>
     <div id="map2" style="height:400px; width:400px; margin-bottom: 20px;"></div>
     <script type="text/javascript">
         var map2 = L.map('map2').setView([48.850258, 2.351074], 11);
@@ -47,25 +34,21 @@ permalink: /circle-marker
         	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     	}).addTo(map2);
     	
-    	map2.on('click',function(e) {
-            L.responsivePopup({ autoPan: false, offset: [11, 11] }).setContent(e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6))
-                     .setLatLng(e.latlng)
-                     .openOn(map2);
-        });
-    	
+    	var popup2 = L.responsivePopup({ autoPan: false, offset: [11, 11]}).setContent('A pretty CSS3 responsive popup.<br> Easily customizable.');
+    	L.circleMarker([48.850258, 2.351074], { radius: 2 , color: "#0000ff" }).addTo(map2);
+    	L.circleMarker([48.850258, 2.351074], { radius: 10 , color: "#ff0000" }).addTo(map2).bindPopup(popup2); 
+	
     	map2.on('popupopen',function(e) {
-    		e.popup.marker1 = L.circleMarker(e.popup.getLatLng(), { radius: 2 , color: "#0000ff" }).addTo(map2);
-    		e.popup.marker2 = L.circleMarker(e.popup.getLatLng(), { radius: 10 , color: "#ff0000" }).addTo(map2);
-        });
+     		e.popup.marker1 = L.circleMarker(e.popup.getLatLng(), { radius: 15 , opacity: 0, fillColor: "#000000", fillOpacity: .3 }).addTo(map2);
+         });
     	
     	map2.on('popupclose',function(e) {
     		map2.removeLayer(e.popup.marker1);
-    		map2.removeLayer(e.popup.marker2);
         });
     </script>
-</div>
-
-<div style="float: left; margin-right: 20px">
+ </div>
+ 
+ <div style="float: left; margin-right: 20px">
     <h3>Landscape</h3>
     <p>Landscape popup on a Portrait map.</p>
     <div id="map3" style="height:500px; width:300px; margin-bottom: 20px;"></div>
@@ -76,24 +59,19 @@ permalink: /circle-marker
         	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     	}).addTo(map3);
     	
-    	map3.on('click',function(e) {
-            L.responsivePopup({ autoPan: false, offset: [11, 11] }).setContent('<div style="text-align: center; height: 100px; width: 200px">' + e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6) + '</div>')
-                     .setLatLng(e.latlng)
-                     .openOn(map3);
-        });
-    	
+    	var popup3 = L.responsivePopup({ autoPan: false, offset: [11, 11]}).setContent('<div style="text-align: center; height: 100px; width: 200px">A pretty CSS3 responsive popup.<br> Easily customizable.</div>');
+    	L.circleMarker([48.850258, 2.351074], { radius: 2 , color: "#0000ff" }).addTo(map3);
+    	L.circleMarker([48.850258, 2.351074], { radius: 10 , color: "#ff0000" }).addTo(map3).bindPopup(popup3); 
+
     	map3.on('popupopen',function(e) {
-    		e.popup.marker1 = L.circleMarker(e.popup.getLatLng(), { radius: 2 , color: "#0000ff" }).addTo(map3);
-    		e.popup.marker2 = L.circleMarker(e.popup.getLatLng(), { radius: 10 , color: "#ff0000" }).addTo(map3);
-        });
+    		e.popup.marker1 = L.circleMarker(e.popup.getLatLng(), { radius: 15 , opacity: 0, fillColor: "#000000", fillOpacity: .3 }).addTo(map3);
+         });
     	
     	map3.on('popupclose',function(e) {
     		map3.removeLayer(e.popup.marker1);
-    		map3.removeLayer(e.popup.marker2);
-        });
+    	 });	
     </script>
 </div>
-
 
 <div style="float: left; margin-right: 20px">
     <h3>Portrait</h3>
@@ -106,20 +84,15 @@ permalink: /circle-marker
         	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     	}).addTo(map4);
     	
-    	map4.on('click',function(e) {
-            L.responsivePopup({ autoPan: false, offset: [11, 11] }).setContent('<div style="text-align: center; height: 200px; width: 100px">' + e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6) + '</div>')
-                     .setLatLng(e.latlng)
-                     .openOn(map4);
-        });
-    	
+    	var popup4 = L.responsivePopup({ autoPan: false, offset: [11, 11]}).setContent('<div style="text-align: center; height: 200px; width: 100px">A pretty CSS3 responsive popup.<br> Easily customizable.</div>');
+    	L.circleMarker([48.850258, 2.351074], { radius: 2 , color: "#0000ff" }).addTo(map4);
+    	L.circleMarker([48.850258, 2.351074], { radius: 10 , color: "#ff0000" }).addTo(map4).bindPopup(popup4); 
+      	
     	map4.on('popupopen',function(e) {
-    		e.popup.marker1 = L.circleMarker(e.popup.getLatLng(), { radius: 2 , color: "#0000ff" }).addTo(map4);
-    		e.popup.marker2 = L.circleMarker(e.popup.getLatLng(), { radius: 10 , color: "#ff0000" }).addTo(map4);
-        });
+    		e.popup.marker1 = L.circleMarker(e.popup.getLatLng(), { radius: 15 , opacity: 0, fillColor: "#000000", fillOpacity: .3 }).addTo(map4);
+         });
     	
     	map4.on('popupclose',function(e) {
     		map4.removeLayer(e.popup.marker1);
-    		map4.removeLayer(e.popup.marker2);
-        });
+    	 });	      	
     </script>
-</div>

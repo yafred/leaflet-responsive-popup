@@ -56,6 +56,7 @@ L.ResponsivePopup = L.Popup.extend({
 	 * Overrides https://github.com/Leaflet/Leaflet/blob/release-1.0.2/src/layer/DivOverlay.js#L172
 	 */
 	_updatePosition: function () {
+
 		if (!this._map) { return; }
 		
 		var pos = this._map.latLngToLayerPoint(this._latlng),
@@ -80,6 +81,21 @@ L.ResponsivePopup = L.Popup.extend({
    		if(this.options.hasTip) {
   			offsetX += tipHeight;
   			offsetY += tipHeight;  
+  			
+  			// clear CSS
+  			L.DomUtil.removeClass(this._container, 'leaflet-resp-popup-north');		
+  			L.DomUtil.removeClass(this._container, 'leaflet-resp-popup-south');		
+  			L.DomUtil.removeClass(this._container, 'leaflet-resp-popup-east');		
+  			L.DomUtil.removeClass(this._container, 'leaflet-resp-popup-west');		
+  			L.DomUtil.removeClass(this._container, 'leaflet-resp-popup-north-east');		
+  			L.DomUtil.removeClass(this._container, 'leaflet-resp-popup-south-west');		
+  			L.DomUtil.removeClass(this._container, 'leaflet-resp-popup-south-east');		
+  			L.DomUtil.removeClass(this._container, 'leaflet-resp-popup-south-west');		
+  			L.DomUtil.removeClass(this._container, 'leaflet-resp-popup-east-north');		
+  			L.DomUtil.removeClass(this._container, 'leaflet-resp-popup-east-south');		
+  			L.DomUtil.removeClass(this._container, 'leaflet-resp-popup-west-north');		
+  			L.DomUtil.removeClass(this._container, 'leaflet-resp-popup-west-south');
+  			// this._container.style.display = 'initial'; // this does not work
   		}
 		
 		// Where can we fit the popup ?
@@ -131,16 +147,16 @@ L.ResponsivePopup = L.Popup.extend({
 		if(canGoTop) {
 			containerPos = pos.subtract(L.point(subtractX, -anchor.y + containerHeight + offsetY, true));
 			if(this.options.hasTip) {
-				if(pos.x < paddingTL.x + containerRadius + tipWidth/2) {
-					containerPos.x = pos.x;
+				if(basePoint.x + anchor.x < paddingTL.x + containerRadius + tipWidth/2) {
+					containerPos.x = pos.x + anchor.x;
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-north-east');
 				}
-				else if(pos.x > mapSize.x - paddingBR.x - containerRadius - tipWidth/2) {
-					containerPos.x = pos.x - containerWidth;
+				else if(basePoint.x + anchor.x > mapSize.x - paddingBR.x - containerRadius - tipWidth/2) {
+					containerPos.x = pos.x + anchor.x - containerWidth;
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-north-west');					
 				}
 				else {
-					this._tipContainer.style.left = (pos.x - containerPos.x) + 'px';
+					this._tipContainer.style.left = (basePoint.x + anchor.x - containerPos.x) + 'px';
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-north');										
 				}
 			}
@@ -148,16 +164,16 @@ L.ResponsivePopup = L.Popup.extend({
 		else if(canGoLeft) {
 			containerPos = pos.subtract(L.point(-anchor.x + containerWidth + offsetX, subtractY, true));
 			if(this.options.hasTip) {
-				if(pos.y < paddingTL.y + containerRadius + tipWidth/2) {
-					containerPos.y = pos.y;
+				if(basePoint.y + anchor.y < paddingTL.y + containerRadius + tipWidth/2) {
+					containerPos.y = pos.y + anchor.y;
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-west-south');
 				}
-				else if(pos.y > mapSize.y - paddingBR.y - containerRadius - tipWidth/2) {
-					containerPos.y = pos.y - containerHeight;
+				else if(basePoint.y + anchor.y > mapSize.y - paddingBR.y - containerRadius - tipWidth/2) {
+					containerPos.y = pos.y + anchor.y - containerHeight;
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-west-north');					
 				}
 				else {
-					this._tipContainer.style.top = (pos.y - containerPos.y) + 'px';
+					this._tipContainer.style.top = (basePoint.y + anchor.y - containerPos.y) + 'px';
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-west');										
 				}				
 			}
@@ -165,16 +181,16 @@ L.ResponsivePopup = L.Popup.extend({
 		else if(canGoBottom) {
 			containerPos = pos.subtract(L.point(subtractX, -anchor.y - offsetY, true));
 			if(this.options.hasTip) {
-				if(pos.x < paddingTL.x + containerRadius + tipWidth/2) {
-					containerPos.x = pos.x;
+				if(basePoint.x + anchor.x < paddingTL.x + containerRadius + tipWidth/2) {
+					containerPos.x = pos.x + anchor.x;
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-south-east');
 				}
-				else if(pos.x > mapSize.x - paddingBR.x - containerRadius - tipWidth/2) {
-					containerPos.x = pos.x - containerWidth;
+				else if(basePoint.x + anchor.x > mapSize.x - paddingBR.x - containerRadius - tipWidth/2) {
+					containerPos.x = pos.x + anchor.x - containerWidth;
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-south-west');					
 				}
 				else {
-					this._tipContainer.style.left = (pos.x - containerPos.x) + 'px';
+					this._tipContainer.style.left = (basePoint.x + anchor.x - containerPos.x) + 'px';
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-south');										
 				}
 			}
@@ -182,16 +198,16 @@ L.ResponsivePopup = L.Popup.extend({
 		else if(canGoRight) {
 			containerPos = pos.subtract(L.point(-anchor.x - offsetX, subtractY, true));
 			if(this.options.hasTip) {
-				if(pos.y < paddingTL.y + containerRadius + tipWidth/2) {
-					containerPos.y = pos.y;
+				if(basePoint.y + anchor.y < paddingTL.y + containerRadius + tipWidth/2) {
+					containerPos.y = pos.y + anchor.y;
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-east-south');
 				}
-				else if(pos.y > mapSize.y - paddingBR.y - containerRadius - tipWidth/2) {
-					containerPos.y = pos.y - containerHeight;
+				else if(basePoint.y + anchor.y > mapSize.y - paddingBR.y - containerRadius - tipWidth/2) {
+					containerPos.y = pos.y + anchor.y - containerHeight;
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-east-north');					
 				}
 				else {
-					this._tipContainer.style.top = (pos.y - containerPos.y) + 'px';
+					this._tipContainer.style.top = (basePoint.y + anchor.y - containerPos.y) + 'px';
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-east');										
 				}								
 			}
@@ -200,21 +216,21 @@ L.ResponsivePopup = L.Popup.extend({
 			var pos = this._map.latLngToLayerPoint(this._map.getCenter());
 			containerPos = pos.subtract(L.point(containerWidth / 2, containerHeight / 2));
 			if(this.options.hasTip) {
-				this._tipContainer.style.display = 'none';
+				// this._tipContainer.style.display = 'none'; // this does not work
 			}
 		}
+		
 			
 		// if point is not visible, just hide the popup
 		if(basePoint.x < 0 || basePoint.y < 0 || basePoint.x > mapSize.x || basePoint.y > mapSize.y) {
-			this._container.style.display = 'none';
+			// this._container.style.display = 'none';  // this does not work
 		}
 		
 		// if container is too big, just hide the popup
 		if(containerWidth - Math.abs(paddingTL.x) - Math.abs(paddingBR.x) > mapSize.x || containerHeight - Math.abs(paddingTL.y) - Math.abs(paddingBR.y) > mapSize.y) {
-			this._container.style.display = 'none';
+			// this._container.style.display = 'none'; // this does not work
 		}
 		
-		console.log('containerPos: ' + containerPos.x + ', ' + containerPos.y);
 		L.DomUtil.setPosition(this._container, containerPos);
 	}
 	

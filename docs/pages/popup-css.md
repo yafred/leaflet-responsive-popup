@@ -5,7 +5,6 @@ permalink: /popup-css
 
 <div class="callout secondary" style="margin-top: 20px">
 <h3>CSS for popup tips.</h3>
-<p>This is work in progress ...</p>
 </div>
 
 <div>

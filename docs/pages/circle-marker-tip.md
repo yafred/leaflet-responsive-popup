@@ -1,14 +1,10 @@
 ---
 layout: default
-permalink: /default-marker
+permalink: /circle-marker-tip
 ---
 
-<script>
-var myIcon = new L.Icon.Default({ popupAnchor: [1, -20] });
-</script>
-
 <div class="callout secondary" style="margin-top: 20px">
-<h3>Move the maps and click on the markers to open a popup (no tip).</h3>
+<h3>Move the maps and click on the markers to open a popup.</h3>
 </div>
 
 <div style="float: left; margin-right: 20px">
@@ -38,9 +34,10 @@ var myIcon = new L.Icon.Default({ popupAnchor: [1, -20] });
         	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     	}).addTo(map2);
     	
-    	var popup2 = L.responsivePopup({ autoPan: false, offset: [15, 25]}).setContent('A pretty CSS3 responsive popup.<br> Easily customizable.');
-    	L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map2).bindPopup(popup2);
-    	
+    	var popup2 = L.responsivePopup({ hasTip: true, autoPan: false, offset: [11, 11]}).setContent('A pretty CSS3 responsive popup.<br> Easily customizable.');
+    	L.circleMarker([48.850258, 2.351074], { radius: 2 , color: "#0000ff" }).addTo(map2);
+    	L.circleMarker([48.850258, 2.351074], { radius: 10 , color: "#ff0000" }).addTo(map2).bindPopup(popup2); 
+	
     	map2.on('popupopen',function(e) {
     		e.popup.marker1 = L.circleMarker(e.popup.getLatLng(), { radius: 15 , opacity: 0, fillColor: "#000000", fillOpacity: .3 }).addTo(map2);
          });
@@ -62,8 +59,9 @@ var myIcon = new L.Icon.Default({ popupAnchor: [1, -20] });
         	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     	}).addTo(map3);
     	
-    	var popup3 = L.responsivePopup({ autoPan: false, offset: [15, 25]}).setContent('<div style="text-align: center; height: 100px; width: 200px">A pretty CSS3 responsive popup.<br> Easily customizable.</div>');
-     	L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map3).bindPopup(popup3);
+    	var popup3 = L.responsivePopup({ hasTip: true, autoPan: false, offset: [11, 11]}).setContent('<div style="text-align: center; height: 100px; width: 200px">A pretty CSS3 responsive popup.<br> Easily customizable.</div>');
+    	L.circleMarker([48.850258, 2.351074], { radius: 2 , color: "#0000ff" }).addTo(map3);
+    	L.circleMarker([48.850258, 2.351074], { radius: 10 , color: "#ff0000" }).addTo(map3).bindPopup(popup3); 
 
     	map3.on('popupopen',function(e) {
     		e.popup.marker1 = L.circleMarker(e.popup.getLatLng(), { radius: 15 , opacity: 0, fillColor: "#000000", fillOpacity: .3 }).addTo(map3);
@@ -86,8 +84,9 @@ var myIcon = new L.Icon.Default({ popupAnchor: [1, -20] });
         	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     	}).addTo(map4);
     	
-    	var popup4 = L.responsivePopup({ autoPan: false, offset: [15, 25]}).setContent('<div style="text-align: center; height: 200px; width: 100px">A pretty CSS3 responsive popup.<br> Easily customizable.</div>');
-      	L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map4).bindPopup(popup4);
+    	var popup4 = L.responsivePopup({ hasTip: true, autoPan: false, offset: [11, 11]}).setContent('<div style="text-align: center; height: 200px; width: 100px">A pretty CSS3 responsive popup.<br> Easily customizable.</div>');
+    	L.circleMarker([48.850258, 2.351074], { radius: 2 , color: "#0000ff" }).addTo(map4);
+    	L.circleMarker([48.850258, 2.351074], { radius: 10 , color: "#ff0000" }).addTo(map4).bindPopup(popup4); 
       	
     	map4.on('popupopen',function(e) {
     		e.popup.marker1 = L.circleMarker(e.popup.getLatLng(), { radius: 15 , opacity: 0, fillColor: "#000000", fillOpacity: .3 }).addTo(map4);
