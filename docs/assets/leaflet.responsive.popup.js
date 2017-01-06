@@ -1,11 +1,12 @@
 /*
- leaflet.responsive.popup
+ leaflet.responsive.popup 0.1.0
  (c) 2017 https://github.com/yafred
 */
 
 L.ResponsivePopup = L.Popup.extend({
 		
 	options: {
+		hasTip: false
 		/*
 		 * Inherited from L.Popup
 		 * 
@@ -43,10 +44,10 @@ L.ResponsivePopup = L.Popup.extend({
 			.disableScrollPropagation(this._contentNode)
 			.on(wrapper, 'contextmenu', L.DomEvent.stopPropagation);
 
-		/* No tip
-		this._tipContainer = L.DomUtil.create('div', prefix + '-tip-container', container);
-		this._tip = L.DomUtil.create('div', prefix + '-tip', this._tipContainer);
-		*/
+		if(this.options.hasTip) {
+			this._tipContainer = L.DomUtil.create('div', prefix + '-tip-container', container);
+			this._tip = L.DomUtil.create('div', prefix + '-tip', this._tipContainer);
+		}
 	},
 	
 	
@@ -57,35 +58,47 @@ L.ResponsivePopup = L.Popup.extend({
 	_updatePosition: function () {
 		if (!this._map) { return; }
 		
-		var map = this._map,
-            container = this._container,
-		    pos = this._map.latLngToLayerPoint(this._latlng),
-	        basePoint = map.layerPointToContainerPoint(pos),
-	        containerWidth = container.offsetWidth,
-	        containerHeight = container.offsetHeight,
+		var pos = this._map.latLngToLayerPoint(this._latlng),
+	        basePoint = this._map.layerPointToContainerPoint(pos),
+	        containerWidth = this._container.offsetWidth,
+	        containerHeight = this._container.offsetHeight,
 		    padding = L.point(this.options.autoPanPadding),
 		    paddingTL = L.point(this.options.autoPanPaddingTopLeft || padding),
 		    paddingBR = L.point(this.options.autoPanPaddingBottomRight || padding),
-	        mapSize = map.getSize(),
+	        mapSize = this._map.getSize(),
 	        anchor = this._getAnchor(),  // popup anchor
         	offset = L.point(this.options.offset); // offset relative to anchor (option from L.DivOverlay. We only use absolute values).
+  
+		// Leaflet default dimensions (should not be hard coded in the future)
+  		var tipHeight = 11; //px
+  		var tipWidth = 22; //px
+  		var containerRadius = 12; //px  
+		
+  		// Tweak offset to include tip dimensions 
+  		var offsetX = Math.abs(offset.x);
+   		var offsetY = Math.abs(offset.y);
+   		if(this.options.hasTip) {
+  			offsetX += tipHeight;
+  			offsetY += tipHeight;  
+  		}
 		
 		// Where can we fit the popup ?
 		var canGoTop = true,
 		    canGoBottom = true,
 		    canGoLeft = true,
-		    canGoRight = true;
+		    canGoRight = true,
+		    containerPos = false;
 		
-		if(basePoint.y + anchor.y - Math.abs(offset.y) - containerHeight - Math.abs(paddingTL.y) < 0) {
+		if(basePoint.y + anchor.y - offsetY - containerHeight - Math.abs(paddingTL.y) < 0) {
 			canGoTop = false;
 		}
-		if(basePoint.y + anchor.y + Math.abs(offset.y) + containerHeight + Math.abs(paddingBR.y) > mapSize.y) {
+		if(basePoint.y + anchor.y + offsetY + containerHeight + Math.abs(paddingBR.y) > mapSize.y) {
 			canGoBottom = false;
 		}
-		if(basePoint.x + anchor.x - Math.abs(offset.x) - containerWidth - Math.abs(paddingTL.x) < 0) {
+		if(basePoint.x + anchor.x - offsetX - containerWidth - Math.abs(paddingTL.x) < 0) {
 			canGoLeft = false;
 		}
-		if(basePoint.x + anchor.x + Math.abs(offset.x) + containerWidth + Math.abs(paddingBR.x) > mapSize.x) {
+		if(basePoint.x + anchor.x + offsetX + containerWidth + Math.abs(paddingBR.x) > mapSize.x) {
 			canGoRight = false;
 		}
 		
@@ -116,28 +129,93 @@ L.ResponsivePopup = L.Popup.extend({
 		
 		// position the popup (order of preference is: top, left, bottom, right, centerOnMap)
 		if(canGoTop) {
-			pos = pos.subtract(L.point(subtractX, -anchor.y + containerHeight + Math.abs(offset.y), true));
+			containerPos = pos.subtract(L.point(subtractX, -anchor.y + containerHeight + offsetY, true));
+			if(this.options.hasTip) {
+				if(pos.x < paddingTL.x + containerRadius + tipWidth/2) {
+					containerPos.x = pos.x;
+					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-north-east');
+				}
+				else if(pos.x > mapSize.x - paddingBR.x - containerRadius - tipWidth/2) {
+					containerPos.x = pos.x - containerWidth;
+					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-north-west');					
+				}
+				else {
+					this._tipContainer.style.left = (pos.x - containerPos.x) + 'px';
+					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-north');										
+				}
+			}
 		}
 		else if(canGoLeft) {
-			pos = pos.subtract(L.point(-anchor.x + containerWidth + Math.abs(offset.x), subtractY, true));
+			containerPos = pos.subtract(L.point(-anchor.x + containerWidth + offsetX, subtractY, true));
+			if(this.options.hasTip) {
+				if(pos.y < paddingTL.y + containerRadius + tipWidth/2) {
+					containerPos.y = pos.y;
+					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-west-south');
+				}
+				else if(pos.y > mapSize.y - paddingBR.y - containerRadius - tipWidth/2) {
+					containerPos.y = pos.y - containerHeight;
+					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-west-north');					
+				}
+				else {
+					this._tipContainer.style.top = (pos.y - containerPos.y) + 'px';
+					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-west');										
+				}				
+			}
 		}
 		else if(canGoBottom) {
-			pos = pos.subtract(L.point(subtractX, -anchor.y - Math.abs(offset.y), true));
+			containerPos = pos.subtract(L.point(subtractX, -anchor.y - offsetY, true));
+			if(this.options.hasTip) {
+				if(pos.x < paddingTL.x + containerRadius + tipWidth/2) {
+					containerPos.x = pos.x;
+					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-south-east');
+				}
+				else if(pos.x > mapSize.x - paddingBR.x - containerRadius - tipWidth/2) {
+					containerPos.x = pos.x - containerWidth;
+					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-south-west');					
+				}
+				else {
+					this._tipContainer.style.left = (pos.x - containerPos.x) + 'px';
+					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-south');										
+				}
+			}
 		}
 		else if(canGoRight) {
-			pos = pos.subtract(L.point(-anchor.x - Math.abs(offset.x), subtractY, true));
+			containerPos = pos.subtract(L.point(-anchor.x - offsetX, subtractY, true));
+			if(this.options.hasTip) {
+				if(pos.y < paddingTL.y + containerRadius + tipWidth/2) {
+					containerPos.y = pos.y;
+					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-east-south');
+				}
+				else if(pos.y > mapSize.y - paddingBR.y - containerRadius - tipWidth/2) {
+					containerPos.y = pos.y - containerHeight;
+					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-east-north');					
+				}
+				else {
+					this._tipContainer.style.top = (pos.y - containerPos.y) + 'px';
+					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-east');										
+				}								
+			}
 		}
 		else {
-			pos = this._map.latLngToLayerPoint(this._map.getCenter());
-			pos = pos.subtract(L.point(containerWidth / 2, containerHeight / 2));
+			var pos = this._map.latLngToLayerPoint(this._map.getCenter());
+			containerPos = pos.subtract(L.point(containerWidth / 2, containerHeight / 2));
+			if(this.options.hasTip) {
+				this._tipContainer.style.display = 'none';
+			}
 		}
-		
-		L.DomUtil.setPosition(container, pos);
-		
+			
 		// if point is not visible, just hide the popup
 		if(basePoint.x < 0 || basePoint.y < 0 || basePoint.x > mapSize.x || basePoint.y > mapSize.y) {
-			container.style.display = 'none';
+			this._container.style.display = 'none';
 		}
+		
+		// if container is too big, just hide the popup
+		if(containerWidth - Math.abs(paddingTL.x) - Math.abs(paddingBR.x) > mapSize.x || containerHeight - Math.abs(paddingTL.y) - Math.abs(paddingBR.y) > mapSize.y) {
+			this._container.style.display = 'none';
+		}
+		
+		console.log('containerPos: ' + containerPos.x + ', ' + containerPos.y);
+		L.DomUtil.setPosition(this._container, containerPos);
 	}
 	
 });
