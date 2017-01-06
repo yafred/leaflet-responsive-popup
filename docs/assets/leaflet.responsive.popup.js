@@ -88,7 +88,7 @@ L.ResponsivePopup = L.Popup.extend({
   			L.DomUtil.removeClass(this._container, 'leaflet-resp-popup-east');		
   			L.DomUtil.removeClass(this._container, 'leaflet-resp-popup-west');		
   			L.DomUtil.removeClass(this._container, 'leaflet-resp-popup-north-east');		
-  			L.DomUtil.removeClass(this._container, 'leaflet-resp-popup-south-west');		
+  			L.DomUtil.removeClass(this._container, 'leaflet-resp-popup-north-west');		
   			L.DomUtil.removeClass(this._container, 'leaflet-resp-popup-south-east');		
   			L.DomUtil.removeClass(this._container, 'leaflet-resp-popup-south-west');		
   			L.DomUtil.removeClass(this._container, 'leaflet-resp-popup-east-north');		
