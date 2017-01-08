@@ -51,7 +51,7 @@ var popup = L.responsivePopup({ autoPanPadding: [10,10] }).setContent('A pretty 
 L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map).bindPopup(popup);
 ```
 
-## hasTip
+### hasTip
 
 ```javascript
 var popup = L.responsivePopup({ hasTip: false }).setContent('A pretty CSS3 responsive popup.<br> Easily customizable.');
