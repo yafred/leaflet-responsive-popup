@@ -156,7 +156,7 @@ L.ResponsivePopup = L.Popup.extend({
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-north-west');					
 				}
 				else {
-					this._tipContainer.style.left = (basePoint.x + anchor.x - containerPos.x) + 'px';
+					this._tipContainer.style.left = (pos.x + anchor.x - containerPos.x) + 'px';
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-north');										
 				}
 			}
@@ -173,7 +173,7 @@ L.ResponsivePopup = L.Popup.extend({
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-west-north');					
 				}
 				else {
-					this._tipContainer.style.top = (basePoint.y + anchor.y - containerPos.y) + 'px';
+					this._tipContainer.style.top = (pos.y + anchor.y - containerPos.y) + 'px';
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-west');										
 				}				
 			}
@@ -190,7 +190,7 @@ L.ResponsivePopup = L.Popup.extend({
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-south-west');					
 				}
 				else {
-					this._tipContainer.style.left = (basePoint.x + anchor.x - containerPos.x) + 'px';
+					this._tipContainer.style.left = (pos.x + anchor.x - containerPos.x) + 'px';
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-south');										
 				}
 			}
@@ -207,7 +207,7 @@ L.ResponsivePopup = L.Popup.extend({
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-east-north');					
 				}
 				else {
-					this._tipContainer.style.top = (basePoint.y + anchor.y - containerPos.y) + 'px';
+					this._tipContainer.style.top = (pos.y + anchor.y - containerPos.y) + 'px';
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-east');										
 				}								
 			}
