@@ -1,12 +1,12 @@
 /*
- leaflet.responsive.popup 0.1.0
+ leaflet.responsive.popup 0.2.0
  (c) 2017 https://github.com/yafred
 */
 
 L.ResponsivePopup = L.Popup.extend({
 		
 	options: {
-		hasTip: false
+		hasTip: true
 		/*
 		 * Inherited from L.Popup
 		 * 
