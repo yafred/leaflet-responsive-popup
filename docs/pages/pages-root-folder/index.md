@@ -11,7 +11,7 @@ If you don't want to move the map to show the popup, you need L.ResponsivePopup
 <img class="thumbnail" src="{{ '/assets/images/leaflet-responsive-popup.png' | absolute_url }}"/>
 
 <p>
-Here is a <a href="{{ '/default-marker' | absolute_url }}">Demo</a> and a <a href="http://www.franceimage.com/map">Use case</a>.
+Here is a <a href="{{ '/default-marker-tip' | absolute_url }}">Demo</a> and a <a href="http://www.franceimage.com/map">Use case</a>.
 </p>
 
 <h3>Usage</h3>

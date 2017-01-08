@@ -6,7 +6,7 @@ The implementation overrides [L.Popup](http://leafletjs.com/reference-1.0.2.html
 ![Leaflet L.Popup](https://yafred.github.io/leaflet-responsive-popup/assets/images/leaflet-popup.png)
 ![Leaflet L.ResponsivePopup](https://yafred.github.io/leaflet-responsive-popup/assets/images/leaflet-responsive-popup.png)
 
-Here is a [demo](https://yafred.github.io/leaflet-responsive-popup/default-marker) and a [use case](http://www.franceimage.com/map/).
+Here is a [demo](https://yafred.github.io/leaflet-responsive-popup/default-marker-tip) and a [use case](http://www.franceimage.com/map/).
 
 ## Usage
 
@@ -51,18 +51,21 @@ var popup = L.responsivePopup({ autoPanPadding: [10,10] }).setContent('A pretty 
 L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map).bindPopup(popup);
 ```
 
-## Limitations
+## hasTip
 
-This first implementation does not show the popup tips.
+```javascript
+var popup = L.responsivePopup({ hasTip: false }).setContent('A pretty CSS3 responsive popup.<br> Easily customizable.');
+L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map).bindPopup(popup);
+```
 
-You can either change the icon of the marker like [here](http://www.franceimage.com/map/).
+If you don't show the tips, you can either change the icon of the marker like [here](http://www.franceimage.com/map/).
 
 ![Changing marker icon to highlight position](https://yafred.github.io/leaflet-responsive-popup/assets/images/change-marker-icon.png)
 
 
 or add another marker to highlight the marker's position.
 
-![Adding a marker icon to highlight position](https://yafred.github.io/leaflet-responsive-popup/assets/images/leaflet-responsive-popup.png)
+![Adding a marker icon to highlight position](https://yafred.github.io/leaflet-responsive-popup/assets/images/leaflet-responsive-popup-no-tip.png)
 
 ```javascript
 map.on('popupopen',function(e) {
