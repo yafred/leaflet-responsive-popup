@@ -48,7 +48,7 @@ permalink: /open-on-map
     	}).addTo(map2);
     	
     	map2.on('click',function(e) {
-            L.responsivePopup({ autoPan: false, offset: [11, 11] }).setContent(e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6))
+            L.responsivePopup({ hasTip: false, autoPan: false, offset: [11, 11] }).setContent(e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6))
                      .setLatLng(e.latlng)
                      .openOn(map2);
         });
@@ -77,7 +77,7 @@ permalink: /open-on-map
     	}).addTo(map3);
     	
     	map3.on('click',function(e) {
-            L.responsivePopup({ autoPan: false, offset: [11, 11] }).setContent('<div style="text-align: center; height: 100px; width: 200px">' + e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6) + '</div>')
+            L.responsivePopup({ hasTip: false, autoPan: false, offset: [11, 11] }).setContent('<div style="text-align: center; height: 100px; width: 200px">' + e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6) + '</div>')
                      .setLatLng(e.latlng)
                      .openOn(map3);
         });
@@ -107,7 +107,7 @@ permalink: /open-on-map
     	}).addTo(map4);
     	
     	map4.on('click',function(e) {
-            L.responsivePopup({ autoPan: false, offset: [11, 11] }).setContent('<div style="text-align: center; height: 200px; width: 100px">' + e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6) + '</div>')
+            L.responsivePopup({ hasTip: false, autoPan: false, offset: [11, 11] }).setContent('<div style="text-align: center; height: 200px; width: 100px">' + e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6) + '</div>')
                      .setLatLng(e.latlng)
                      .openOn(map4);
         });

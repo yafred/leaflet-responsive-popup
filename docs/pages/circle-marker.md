@@ -34,7 +34,7 @@ permalink: /circle-marker
         	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     	}).addTo(map2);
     	
-    	var popup2 = L.responsivePopup({ autoPan: false, offset: [11, 11]}).setContent('A pretty CSS3 responsive popup.<br> Easily customizable.');
+    	var popup2 = L.responsivePopup({ hasTip: false, autoPan: false, offset: [11, 11]}).setContent('A pretty CSS3 responsive popup.<br> Easily customizable.');
     	L.circleMarker([48.850258, 2.351074], { radius: 2 , color: "#0000ff" }).addTo(map2);
     	L.circleMarker([48.850258, 2.351074], { radius: 10 , color: "#ff0000" }).addTo(map2).bindPopup(popup2); 
 	
@@ -59,7 +59,7 @@ permalink: /circle-marker
         	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     	}).addTo(map3);
     	
-    	var popup3 = L.responsivePopup({ autoPan: false, offset: [11, 11]}).setContent('<div style="text-align: center; height: 100px; width: 200px">A pretty CSS3 responsive popup.<br> Easily customizable.</div>');
+    	var popup3 = L.responsivePopup({ hasTip: false, autoPan: false, offset: [11, 11]}).setContent('<div style="text-align: center; height: 100px; width: 200px">A pretty CSS3 responsive popup.<br> Easily customizable.</div>');
     	L.circleMarker([48.850258, 2.351074], { radius: 2 , color: "#0000ff" }).addTo(map3);
     	L.circleMarker([48.850258, 2.351074], { radius: 10 , color: "#ff0000" }).addTo(map3).bindPopup(popup3); 
 
@@ -84,7 +84,7 @@ permalink: /circle-marker
         	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     	}).addTo(map4);
     	
-    	var popup4 = L.responsivePopup({ autoPan: false, offset: [11, 11]}).setContent('<div style="text-align: center; height: 200px; width: 100px">A pretty CSS3 responsive popup.<br> Easily customizable.</div>');
+    	var popup4 = L.responsivePopup({ hasTip: false, autoPan: false, offset: [11, 11]}).setContent('<div style="text-align: center; height: 200px; width: 100px">A pretty CSS3 responsive popup.<br> Easily customizable.</div>');
     	L.circleMarker([48.850258, 2.351074], { radius: 2 , color: "#0000ff" }).addTo(map4);
     	L.circleMarker([48.850258, 2.351074], { radius: 10 , color: "#ff0000" }).addTo(map4).bindPopup(popup4); 
       	

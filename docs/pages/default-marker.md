@@ -38,7 +38,7 @@ var myIcon = new L.Icon.Default({ popupAnchor: [1, -20] });
         	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     	}).addTo(map2);
     	
-    	var popup2 = L.responsivePopup({ autoPan: false, offset: [15, 25]}).setContent('A pretty CSS3 responsive popup.<br> Easily customizable.');
+    	var popup2 = L.responsivePopup({ hasTip: false, autoPan: false, offset: [15, 25]}).setContent('A pretty CSS3 responsive popup.<br> Easily customizable.');
     	L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map2).bindPopup(popup2);
     	
     	map2.on('popupopen',function(e) {
@@ -62,7 +62,7 @@ var myIcon = new L.Icon.Default({ popupAnchor: [1, -20] });
         	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     	}).addTo(map3);
     	
-    	var popup3 = L.responsivePopup({ autoPan: false, offset: [15, 25]}).setContent('<div style="text-align: center; height: 100px; width: 200px">A pretty CSS3 responsive popup.<br> Easily customizable.</div>');
+    	var popup3 = L.responsivePopup({ hasTip: false, autoPan: false, offset: [15, 25]}).setContent('<div style="text-align: center; height: 100px; width: 200px">A pretty CSS3 responsive popup.<br> Easily customizable.</div>');
      	L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map3).bindPopup(popup3);
 
     	map3.on('popupopen',function(e) {
@@ -86,7 +86,7 @@ var myIcon = new L.Icon.Default({ popupAnchor: [1, -20] });
         	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     	}).addTo(map4);
     	
-    	var popup4 = L.responsivePopup({ autoPan: false, offset: [15, 25]}).setContent('<div style="text-align: center; height: 200px; width: 100px">A pretty CSS3 responsive popup.<br> Easily customizable.</div>');
+    	var popup4 = L.responsivePopup({ hasTip: false, autoPan: false, offset: [15, 25]}).setContent('<div style="text-align: center; height: 200px; width: 100px">A pretty CSS3 responsive popup.<br> Easily customizable.</div>');
       	L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map4).bindPopup(popup4);
       	
     	map4.on('popupopen',function(e) {
