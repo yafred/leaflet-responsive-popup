@@ -150,14 +150,19 @@ L.ResponsivePopup = L.Popup.extend({
 				if(basePoint.x + anchor.x < paddingTL.x + containerRadius + tipWidth/2) {
 					containerPos.x = pos.x + anchor.x;
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-north-east');
+					this._tipContainer.style.top = containerHeight + 'px';
+					this._tipContainer.style.left = '0px';
 				}
 				else if(basePoint.x + anchor.x > mapSize.x - paddingBR.x - containerRadius - tipWidth/2) {
 					containerPos.x = pos.x + anchor.x - containerWidth;
-					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-north-west');					
+					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-north-west');	
+					this._tipContainer.style.top = containerHeight + 'px';
+					this._tipContainer.style.left = containerWidth + 'px';
 				}
 				else {
-					this._tipContainer.style.left = (pos.x + anchor.x - containerPos.x) + 'px';
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-north');										
+					this._tipContainer.style.top = containerHeight + 'px';
+					this._tipContainer.style.left = (pos.x + anchor.x - containerPos.x) + 'px';
 				}
 			}
 		}
@@ -167,14 +172,19 @@ L.ResponsivePopup = L.Popup.extend({
 				if(basePoint.y + anchor.y < paddingTL.y + containerRadius + tipWidth/2) {
 					containerPos.y = pos.y + anchor.y;
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-west-south');
+					this._tipContainer.style.top = '0px';
+					this._tipContainer.style.left = containerWidth + 'px';
 				}
 				else if(basePoint.y + anchor.y > mapSize.y - paddingBR.y - containerRadius - tipWidth/2) {
 					containerPos.y = pos.y + anchor.y - containerHeight;
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-west-north');					
+					this._tipContainer.style.top = containerHeight + 'px';
+					this._tipContainer.style.left = containerWidth + 'px';
 				}
 				else {
-					this._tipContainer.style.top = (pos.y + anchor.y - containerPos.y) + 'px';
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-west');										
+					this._tipContainer.style.top = (pos.y + anchor.y - containerPos.y) + 'px';
+					this._tipContainer.style.left = containerWidth + 'px';
 				}				
 			}
 		}
@@ -184,14 +194,19 @@ L.ResponsivePopup = L.Popup.extend({
 				if(basePoint.x + anchor.x < paddingTL.x + containerRadius + tipWidth/2) {
 					containerPos.x = pos.x + anchor.x;
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-south-east');
+					this._tipContainer.style.top = '0px';
+					this._tipContainer.style.left = '0px';
 				}
 				else if(basePoint.x + anchor.x > mapSize.x - paddingBR.x - containerRadius - tipWidth/2) {
 					containerPos.x = pos.x + anchor.x - containerWidth;
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-south-west');					
+					this._tipContainer.style.top = '0px';
+					this._tipContainer.style.left = containerWidth + 'px';
 				}
 				else {
-					this._tipContainer.style.left = (pos.x + anchor.x - containerPos.x) + 'px';
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-south');										
+					this._tipContainer.style.top = '0px';
+					this._tipContainer.style.left = (pos.x + anchor.x - containerPos.x) + 'px';
 				}
 			}
 		}
@@ -201,14 +216,19 @@ L.ResponsivePopup = L.Popup.extend({
 				if(basePoint.y + anchor.y < paddingTL.y + containerRadius + tipWidth/2) {
 					containerPos.y = pos.y + anchor.y;
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-east-south');
+					this._tipContainer.style.top = '0px';
+					this._tipContainer.style.left = '0px';
 				}
 				else if(basePoint.y + anchor.y > mapSize.y - paddingBR.y - containerRadius - tipWidth/2) {
 					containerPos.y = pos.y + anchor.y - containerHeight;
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-east-north');					
+					this._tipContainer.style.top = containerHeight + 'px';
+					this._tipContainer.style.left = '0px';
 				}
 				else {
-					this._tipContainer.style.top = (pos.y + anchor.y - containerPos.y) + 'px';
 					L.DomUtil.addClass(this._container, 'leaflet-resp-popup-east');										
+					this._tipContainer.style.top = (pos.y + anchor.y - containerPos.y) + 'px';
+					this._tipContainer.style.left = '0px';
 				}								
 			}
 		}
