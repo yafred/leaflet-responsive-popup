@@ -19,7 +19,7 @@ permalink: /open-on-map
     	}).addTo(map1);
     	
     	map1.on('click',function(e) {
-            L.popup({ autoPan: false}).setContent(e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6))
+            L.popup({ autoPan: false, className: "no-tip"}).setContent(e.latlng.lat.toFixed(6) + ', ' + e.latlng.lng.toFixed(6))
                      .setLatLng(e.latlng)
                      .openOn(map1);
         });
