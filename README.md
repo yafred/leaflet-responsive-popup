@@ -58,7 +58,7 @@ var popup = L.responsivePopup({ hasTip: false }).setContent('A pretty CSS3 respo
 L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map).bindPopup(popup);
 ```
 
-If you don't show the tips, you can either change the icon of the marker like [here](http://www.franceimage.com/map/).
+If you don't show the tips, you can either change the icon of the marker like [here](http://franceimage.github.io/map).
 
 ![Changing marker icon to highlight position](https://yafred.github.io/leaflet-responsive-popup/assets/images/change-marker-icon.png)
 
