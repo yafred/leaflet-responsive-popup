@@ -6,7 +6,7 @@ The implementation overrides [L.Popup](http://leafletjs.com/reference-1.0.2.html
 ![Leaflet L.Popup](https://yafred.github.io/leaflet-responsive-popup/assets/images/leaflet-popup.png)
 ![Leaflet L.ResponsivePopup](https://yafred.github.io/leaflet-responsive-popup/assets/images/leaflet-responsive-popup.png)
 
-Here is a [demo](https://yafred.github.io/leaflet-responsive-popup/default-marker-tip) and a [use case](http://www.franceimage.com/map/).
+Here is a [demo](https://yafred.github.io/leaflet-responsive-popup/default-marker-tip) and a [use case](http://franceimage.github.io/map).
 
 ## Usage
 
