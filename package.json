@@ -1,11 +1,14 @@
 {
   "name": "leaflet-responsive-popup",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Removes the need to move the map to be able to see the content of a L.Popup",
   "main": "leaflet.responsive.popup.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "publishConfig": {
+    "access": "public"
+  },  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yafred/leaflet-responsive-popup.git"

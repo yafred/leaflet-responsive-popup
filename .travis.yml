@@ -1,0 +1,8 @@
+language: generic
+  
+deploy:
+  provider: npm
+  email: ${EMAIL}
+  api_key: ${NPM_TOKEN}
+  on:
+    tags: true

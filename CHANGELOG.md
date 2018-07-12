@@ -15,3 +15,7 @@ Initial release.
 
 * Implement tips.
 * Popup have tips by default.
+
+## 0.3.0 (2018-07-12)
+
+* Fix method chaining in initLayout.

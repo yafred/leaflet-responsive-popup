@@ -16,8 +16,8 @@ Here is a [demo](https://yafred.github.io/leaflet-responsive-popup/default-marke
 <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 	
-<script src="https://unpkg.com/leaflet-responsive-popup@0.2.0/leaflet.responsive.popup.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/leaflet-responsive-popup@0.2.0/leaflet.responsive.popup.css" />
+<script src="https://unpkg.com/leaflet-responsive-popup@0.3.0/leaflet.responsive.popup.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet-responsive-popup@0.3.0/leaflet.responsive.popup.css" />
 ```
 
 ### bind a L.ResponsivePopup to your markers
