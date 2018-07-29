@@ -1,6 +1,6 @@
 /*
  leaflet.responsive.popup 0.3.0
- (c) 2017 https://github.com/yafred
+ (c) 2018 https://github.com/yafred
 */
 
 L.ResponsivePopup = L.Popup.extend({
@@ -19,7 +19,8 @@ L.ResponsivePopup = L.Popup.extend({
 	},
 	
 	/**
-	 * Overrides https://github.com/Leaflet/Leaflet/blob/release-1.0.2/src/layer/Popup.js#L158
+	 * Overrides https://github.com/Leaflet/Leaflet/blob/v1.3.3/src/layer/Popup.js#L176
+	 * This is to add hasTip option
 	 */
 	_initLayout: function () {
 		
@@ -28,6 +29,16 @@ L.ResponsivePopup = L.Popup.extend({
 			prefix + ' ' + (this.options.className || '') +
 			' leaflet-zoom-animated');
 
+		var wrapper = this._wrapper = L.DomUtil.create('div', prefix + '-content-wrapper', container);
+		this._contentNode = L.DomUtil.create('div', prefix + '-content', wrapper);
+
+		L.DomEvent.disableClickPropagation(wrapper);
+		L.DomEvent.disableScrollPropagation(this._contentNode);
+		L.DomEvent.on(wrapper, 'contextmenu', L.DomEvent.stopPropagation);
+
+		this._tipContainer = L.DomUtil.create('div', prefix + '-tip-container', container);
+		this._tip = L.DomUtil.create('div', prefix + '-tip', this._tipContainer);
+
 		if (this.options.closeButton) {
 			var closeButton = this._closeButton = L.DomUtil.create('a', prefix + '-close-button', container);
 			closeButton.href = '#close';
@@ -35,25 +46,12 @@ L.ResponsivePopup = L.Popup.extend({
 
 			L.DomEvent.on(closeButton, 'click', this._onCloseButtonClick, this);
 		}
-
-		var wrapper = this._wrapper = L.DomUtil.create('div', prefix + '-content-wrapper', container);
-		this._contentNode = L.DomUtil.create('div', prefix + '-content', wrapper);
-
-		L.DomEvent
-			.disableClickPropagation(wrapper)
-			.disableScrollPropagation(this._contentNode)
-			.on(wrapper, 'contextmenu', L.DomEvent.stopPropagation);
-
-		if(this.options.hasTip) {
-			this._tipContainer = L.DomUtil.create('div', prefix + '-tip-container', container);
-			this._tip = L.DomUtil.create('div', prefix + '-tip', this._tipContainer);
-		}
 	},
 	
 	
 	
 	/**
-	 * Overrides https://github.com/Leaflet/Leaflet/blob/release-1.0.2/src/layer/DivOverlay.js#L172
+	 * Overrides https://github.com/Leaflet/Leaflet/blob/v1.3.3/src/layer/DivOverlay.js#L178
 	 */
 	_updatePosition: function () {
 
