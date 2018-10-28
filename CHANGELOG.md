@@ -19,3 +19,7 @@ Initial release.
 ## 0.3.0 (2018-07-12)
 
 * Fix method chaining in initLayout.
+
+## next
+* Base implementation and examples on leaflet 1.3.3
+* Fix copyrights
