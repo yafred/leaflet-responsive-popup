@@ -23,3 +23,6 @@ Initial release.
 ## 0.4.0 (2018-10-28)
 * Base implementation and examples on leaflet 1.3.4
 * Fix copyrights
+
+## 0.4.1 (2018-10-28)
+* Fix comments
