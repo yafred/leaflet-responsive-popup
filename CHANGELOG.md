@@ -26,3 +26,6 @@ Initial release.
 
 ## 0.4.1 (2018-10-28)
 * Fix comments
+
+## Next
+* Fix no tip

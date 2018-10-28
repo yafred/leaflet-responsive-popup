@@ -37,6 +37,9 @@ L.ResponsivePopup = L.Popup.extend({
 		L.DomEvent.on(wrapper, 'contextmenu', L.DomEvent.stopPropagation);
 
 		this._tipContainer = L.DomUtil.create('div', prefix + '-tip-container', container);
+  		if(!this.options.hasTip) {
+  			this._tipContainer.style.visibility = 'hidden';
+  		}
 		this._tip = L.DomUtil.create('div', prefix + '-tip', this._tipContainer);
 
 		if (this.options.closeButton) {
