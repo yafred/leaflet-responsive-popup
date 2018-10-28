@@ -19,7 +19,7 @@ L.ResponsivePopup = L.Popup.extend({
 	},
 	
 	/**
-	 * Overrides https://github.com/Leaflet/Leaflet/blob/v1.3.3/src/layer/Popup.js#L176
+	 * Overrides https://github.com/Leaflet/Leaflet/blob/v1.3.4/src/layer/Popup.js#L176
 	 * This is to add hasTip option
 	 */
 	_initLayout: function () {
@@ -51,7 +51,7 @@ L.ResponsivePopup = L.Popup.extend({
 	
 	
 	/**
-	 * Overrides https://github.com/Leaflet/Leaflet/blob/v1.3.3/src/layer/DivOverlay.js#L178
+	 * Overrides https://github.com/Leaflet/Leaflet/blob/v1.3.4/src/layer/DivOverlay.js#L178
 	 */
 	_updatePosition: function () {
 
