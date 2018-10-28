@@ -1,6 +1,6 @@
 ---
-layout: default
-permalink: /popup-css
+layout: rtl
+permalink: /popup-css-rtl
 ---
 
 {% include custom/popup-css.md %}
