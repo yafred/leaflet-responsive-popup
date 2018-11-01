@@ -27,5 +27,6 @@ Initial release.
 ## 0.4.1 (2018-10-28)
 * Fix comments
 
-## Next
-* Fix no tip
+## 0.5.0 (2018-11-01)
+* Fix demo with no tip
+* Fix RTL (using leaflet.responsive.popup.rtc.css)
