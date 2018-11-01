@@ -252,6 +252,9 @@ L.ResponsivePopup = L.Popup.extend({
 			// this._container.style.display = 'none'; // this does not work
 		}
 		
+		// fix LTR
+		this._container.style.left = '0px';
+		
 		L.DomUtil.setPosition(this._container, containerPos);
 	}
 	
