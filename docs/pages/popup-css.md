@@ -3,7 +3,6 @@ layout: default
 permalink: /popup-css
 ---
 
-
 <div class="callout secondary" style="margin-top: 20px">
 <h3>CSS for popup tips.</h3>
 </div>
