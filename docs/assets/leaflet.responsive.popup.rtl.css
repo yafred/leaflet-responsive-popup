@@ -3,6 +3,10 @@
  (c) 2018 https://github.com/yafred
 */
 
+.leaflet-popup {
+	left: 0px;
+}
+
 
 /* North */
 .leaflet-resp-popup-north .leaflet-popup-tip {
