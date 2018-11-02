@@ -21,7 +21,7 @@ Here is a [demo](https://yafred.github.io/leaflet-responsive-popup/default-marke
 ```
 
 ### RTL support
-If your page uses rtl (right to left) direction, add leaflet.responsive.popup.rtl.css
+If your pages use rtl (right to left) direction, add leaflet.responsive.popup.rtl.css
 
 ```html
 <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>

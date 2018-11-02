@@ -30,3 +30,6 @@ Initial release.
 ## 0.5.0 (2018-11-01)
 * Fix demo with no tip
 * Fix RTL (using leaflet.responsive.popup.rtc.css)
+
+## next
+* fix typo in README
