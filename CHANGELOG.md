@@ -31,7 +31,7 @@ Initial release.
 * Fix demo with no tip
 * Fix RTL (using leaflet.responsive.popup.rtc.css)
 
-## now
+## 0.6.0 (2018-12-27)
 * Fix typo in README
 * Fix duplicate css and js in repository (only keep files in docs/assets and let travis copy them before deploy)
 
