@@ -35,5 +35,8 @@ Initial release.
 * Fix typo in README
 * Fix duplicate css and js in repository (only keep files in docs/assets and let travis copy them before deploy)
 
+## 0.6.1 (2018-12-27)
+* Fix travis
+
 ## next
 * Export js types for Angular (without breaking direct inclusion in html)

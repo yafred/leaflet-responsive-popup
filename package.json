@@ -1,6 +1,6 @@
 {
   "name": "leaflet-responsive-popup",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Removes the need to move the map to be able to see the content of a L.Popup",
   "main": "leaflet.responsive.popup.js",
   "scripts": {
