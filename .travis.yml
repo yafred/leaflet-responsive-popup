@@ -1,13 +1,5 @@
 language: generic
   
-script:
-  - git clone master
-  - cp docs/assets/leaflet.responsive.popup.rtl.css . 
-  - cp docs/assets/leaflet.responsive.popup.css . 
-  - cp docs/assets/leaflet.responsive.popup.js . 
-  - git commit -a -m "Use assets as distrib files"
-  - git push
-  
 deploy:
   provider: npm
   email: ${EMAIL}

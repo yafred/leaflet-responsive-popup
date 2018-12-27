@@ -1,2 +1,98 @@
-Place holder
-File is in https://github.com/yafred/leaflet-responsive-popup/tree/master/docs/assets
+/*
+ leaflet.responsive.popup 0.6.2
+ (c) 2018 https://github.com/yafred
+*/
+
+.leaflet-popup {
+	left: 0px;
+}
+
+
+/* North */
+.leaflet-resp-popup-north .leaflet-popup-tip {
+	box-shadow: none;
+}
+
+
+/* South */
+.leaflet-resp-popup-south .leaflet-popup-tip {
+	margin: 11px auto 0;
+	box-shadow: none;
+}
+
+
+/* West */
+.leaflet-resp-popup-west .leaflet-popup-tip {
+	margin: 1px 13px;
+	box-shadow: none;
+}
+
+
+/* East */
+.leaflet-resp-popup-east .leaflet-popup-tip {
+	margin: 0 -9px;
+	box-shadow: none;
+}
+
+
+/* South-East */
+.leaflet-resp-popup-south-east .leaflet-popup-tip {
+	margin: 11px 33px 11px 11px;
+	box-shadow: none;
+}
+
+
+/* East-South */
+.leaflet-resp-popup-east-south .leaflet-popup-tip {
+	margin: -8px -11px;
+	box-shadow: none;
+}
+
+
+/* North-East */
+.leaflet-resp-popup-north-east .leaflet-popup-tip {
+	margin: -8px 33px;
+	box-shadow: none;
+}
+
+
+/* East-North */
+.leaflet-resp-popup-east-north .leaflet-popup-tip {
+	margin: 11px 11px 11px 11px;
+	box-shadow: none;
+}
+
+
+/* North-West */
+.leaflet-resp-popup-north-west .leaflet-popup-tip {
+	margin: -8px -11px 11px 11px;
+	box-shadow: none;
+}
+
+
+/* West-North */
+.leaflet-resp-popup-west-north .leaflet-popup-tip-container {
+	margin-right: -20px;
+	margin-top: -20px;
+	left: 100%;
+	right: 0;
+}
+
+.leaflet-resp-popup-west-north .leaflet-popup-tip {
+	margin: 11px 11px 0px -8px;
+	box-shadow: none;
+}
+
+
+/* South-West */
+.leaflet-resp-popup-south-west .leaflet-popup-tip {
+	margin: 11px -11px 11px 11px;
+	box-shadow: none;
+}
+
+
+/* West-South */
+.leaflet-resp-popup-west-south .leaflet-popup-tip {
+	margin: -11px 11px;
+	box-shadow: none;
+}
