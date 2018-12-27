@@ -1,5 +1,5 @@
 /*
- leaflet.responsive.popup 0.6.2
+ leaflet.responsive.popup 0.6.3
  (c) 2018 https://github.com/yafred
 */
 
