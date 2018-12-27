@@ -1,7 +1,7 @@
 language: generic
   
 script:
-  - git co master
+  - git clone master
   - cp docs/assets/leaflet.responsive.popup.rtl.css . 
   - cp docs/assets/leaflet.responsive.popup.css . 
   - cp docs/assets/leaflet.responsive.popup.js . 
