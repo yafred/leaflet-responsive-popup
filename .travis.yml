@@ -1,5 +1,10 @@
 language: generic
   
+script:
+  - cp docs/assets/leaflet.responsive.popup.rtl.css . 
+  - cp docs/assets/leaflet.responsive.popup.css . 
+  - cp docs/assets/leaflet.responsive.popup.js . 
+  
 deploy:
   provider: npm
   email: ${EMAIL}

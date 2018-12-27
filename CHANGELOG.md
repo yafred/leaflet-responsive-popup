@@ -31,5 +31,9 @@ Initial release.
 * Fix demo with no tip
 * Fix RTL (using leaflet.responsive.popup.rtc.css)
 
+## now
+* Fix typo in README
+* Fix duplicate css and js in repository (only keep files in docs/assets and let travis copy them before deploy)
+
 ## next
-* fix typo in README
+* Export js types for Angular (without breaking direct inclusion in html)
