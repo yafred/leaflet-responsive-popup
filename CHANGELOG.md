@@ -31,5 +31,6 @@ Initial release.
 * Fix demo with no tip
 * Fix RTL (using leaflet.responsive.popup.rtc.css)
 
-## next
-* fix typo in README
+## 0.6.0 (2018-12-27)
+* Fix typo in README
+* Export types for Angular integration

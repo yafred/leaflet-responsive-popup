@@ -262,3 +262,8 @@ L.ResponsivePopup = L.Popup.extend({
 L.responsivePopup = function (options, source) {
 	return new L.ResponsivePopup(options, source);
 };
+
+//Export (primarily for integration with Angular components)
+export var responsivePopup = L.responsivePopup;
+export var ResponsivePopup = L.ResponsivePopup;
+
