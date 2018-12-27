@@ -5,6 +5,7 @@ script:
   - cp docs/assets/leaflet.responsive.popup.css . 
   - cp docs/assets/leaflet.responsive.popup.js . 
   - git commit -a -m "Use assets as distrib files"
+  - git push
   
 deploy:
   provider: npm

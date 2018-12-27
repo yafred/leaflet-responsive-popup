@@ -38,5 +38,8 @@ Initial release.
 ## 0.6.1 (2018-12-27)
 * Fix travis
 
+## 0.6.2 (2018-12-27)
+* Fix travis
+
 ## next
 * Export js types for Angular (without breaking direct inclusion in html)
