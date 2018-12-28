@@ -41,5 +41,5 @@ Initial release.
 ## 0.6.2 (2018-12-27)
 * Undo Fix duplicate css and js in repository (only keep files in docs/assets and let travis copy them before deploy)
 
-## next
-* Export js types for Angular (without breaking direct inclusion in html)
+## 0.6.3 (2018-12-28)
+* Add Angular support (Export js types when without breaking direct inclusion in html)

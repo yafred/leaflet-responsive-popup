@@ -1,5 +1,5 @@
 /*
- leaflet.responsive.popup 0.6.2
+ leaflet.responsive.popup 0.6.3
  (c) 2018 https://github.com/yafred
 */
 
@@ -262,3 +262,9 @@ L.ResponsivePopup = L.Popup.extend({
 L.responsivePopup = function (options, source) {
 	return new L.ResponsivePopup(options, source);
 };
+
+//Adds Angular support
+if( typeof exports === 'object' && typeof module !== 'undefined') {
+	exports.responsivePopup = L.responsivePopup;
+	exports.ResponsivePopup = L.ResponsivePopup;
+}
