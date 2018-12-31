@@ -39,6 +39,11 @@ var popup = L.responsivePopup().setContent('A pretty CSS3 responsive popup.<br> 
 L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map).bindPopup(popup);
 ```
 
+### Angular support
+See examples:
+  * https://github.com/yafred/ng-leaflet-responsive-popup (Angular)
+  * https://github.com/yafred/ngx-leaflet-responsive-popup (Angular @asymmetrik/ngx-leaflet)
+
 ## Options
 
 ### offset
