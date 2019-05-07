@@ -4,8 +4,15 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
+	{% if page.permalink == "/popup-css-rtl" %}
+	<style>
+	.leaflet-popup {
+		left: auto !important;
+	}
+	</style>
+	{% endif %}
 	{% include _head.html %}
-<link rel="stylesheet" href="{{ '/assets/leaflet.responsive.popup.rtl.css' | absolute_url }}" />
+	<link rel="stylesheet" href="{{ '/assets/leaflet.responsive.popup.rtl.css' | absolute_url }}" />
 </head>
 <body id="top-of-page" class="" style="direction: rtl;">
 	{% include _top_bar.html %}
