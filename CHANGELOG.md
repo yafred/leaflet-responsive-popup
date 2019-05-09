@@ -43,3 +43,8 @@ Initial release.
 
 ## 0.6.3 (2018-12-28)
 * Add Angular support (Export js types when without breaking direct inclusion in html)
+
+## 0.6.4 (2019-05-09)
+* Fix issue #11 (RTL CSS Demo)
+* Update 3rd-party versions in demo pages
+* Fix copyrights
