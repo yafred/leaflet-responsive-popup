@@ -2,4 +2,7 @@
 /.project
 /_site/
 /docs/_site/
-/.sass-cache/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+

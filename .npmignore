@@ -1,5 +1,7 @@
 /.settings/
 /.project
 /_site/
-/docs/
-/.sass-cache/
+/docs/_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
