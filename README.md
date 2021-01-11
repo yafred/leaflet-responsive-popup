@@ -70,7 +70,8 @@ L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map).bindPopup(popup);
 
 ### autoPanPaddingTopLeft and autoPanPaddingBottomRight
 
-In the similar fashion, you can also define the padding based on the corners of the map, this will allow you to have more control over the padding as you can define the padding to be more specific to your needs:
+In a similar fashion, you can also define the padding based on the corners of the map, this will allow you to have more control over the padding i.e: cases where you'd like the padding to be different depending on the side of the map.
+
 ```javascript
 var popup = L.responsivePopup({ autoPanPaddingTopLeft: [5,10], autoPanPaddingBottomRight: [10,20] }).setContent('A pretty CSS3 responsive popup.<br> Easily customizable.');
 L.marker([48.850258, 2.351074], { icon: myIcon }).addTo(map).bindPopup(popup);
