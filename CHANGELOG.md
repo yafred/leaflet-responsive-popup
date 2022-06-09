@@ -48,3 +48,8 @@ Initial release.
 * Fix issue #11 (RTL CSS Demo)
 * Update 3rd-party versions in demo pages
 * Fix copyrights
+
+## 1.0.0 (2022-06-09)
+* Fit for leaflet 1.8 (breaks compatibility with earlier versions of leaflet)
+* Update 3rd-party versions in demo pages
+* Fix copyrights

@@ -16,8 +16,8 @@ Here is a [demo](https://yafred.github.io/leaflet-responsive-popup/default-marke
 <script src="https://unpkg.com/leaflet@1.5.0/dist/leaflet.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.0/dist/leaflet.css" />
 	
-<script src="https://unpkg.com/leaflet-responsive-popup@0.6.4/leaflet.responsive.popup.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/leaflet-responsive-popup@0.6.4/leaflet.responsive.popup.css" />
+<script src="https://unpkg.com/leaflet-responsive-popup@1.0.0/leaflet.responsive.popup.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet-responsive-popup@1.0.0/leaflet.responsive.popup.css" />
 ```
 
 ### RTL support
@@ -27,9 +27,9 @@ If your pages use rtl (right to left) direction, add leaflet.responsive.popup.rt
 <script src="https://unpkg.com/leaflet@1.5.0/dist/leaflet.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.0/dist/leaflet.css" />
 	
-<script src="https://unpkg.com/leaflet-responsive-popup@0.6.4/leaflet.responsive.popup.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/leaflet-responsive-popup@0.6.4/leaflet.responsive.popup.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet-responsive-popup@0.6.4/leaflet.responsive.popup.rtl.css" />
+<script src="https://unpkg.com/leaflet-responsive-popup@1.0.0/leaflet.responsive.popup.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet-responsive-popup@1.0.0/leaflet.responsive.popup.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet-responsive-popup@1.0.0/leaflet.responsive.popup.rtl.css" />
 ```
 
 ### bind a L.ResponsivePopup to your markers
@@ -96,7 +96,11 @@ map.on('popupclose',function(e) {
 
 
 ## Notes
-Needs at least Leaflet 1.0
+Leaflet 1.0 to 1.7: you need to use leaflet-responsive-popup 1.0.0
+
+Leaflet 1.8: you need to use leaflet-responsive-popup 1.0.0 (coming soon ...)
 
 This was inspired by [Rrose: A Leaflet Plugin for Edge Cases](https://github.com/erictheise/rrose).
+
+
 
