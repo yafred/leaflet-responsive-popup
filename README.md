@@ -96,9 +96,9 @@ map.on('popupclose',function(e) {
 
 
 ## Notes
-Leaflet 1.0 to 1.7: you need to use leaflet-responsive-popup 1.0.0
+Leaflet 1.0 to 1.7: you need to use leaflet-responsive-popup 0.6.4
 
-Leaflet 1.8: you need to use leaflet-responsive-popup 1.0.0 (coming soon ...)
+Leaflet 1.8: you need to use leaflet-responsive-popup 1.0.0 
 
 This was inspired by [Rrose: A Leaflet Plugin for Edge Cases](https://github.com/erictheise/rrose).
 
