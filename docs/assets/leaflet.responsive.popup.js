@@ -19,11 +19,11 @@ L.ResponsivePopup = L.Popup.extend({
 	},
 	
 	/**
-	 * Overrides https://github.com/Leaflet/Leaflet/blob/v1.3.4/src/layer/Popup.js#L176
+	 * Overrides https://github.com/Leaflet/Leaflet/blob/399ed2105220f10b79e69b57420597e03502e611/src/layer/Popup.js#L183
 	 * This is to add hasTip option
 	 */
 	_initLayout: function () {
-		
+
 		var prefix = 'leaflet-popup',
 		    container = this._container = L.DomUtil.create('div',
 			prefix + ' ' + (this.options.className || '') +
@@ -32,22 +32,27 @@ L.ResponsivePopup = L.Popup.extend({
 		var wrapper = this._wrapper = L.DomUtil.create('div', prefix + '-content-wrapper', container);
 		this._contentNode = L.DomUtil.create('div', prefix + '-content', wrapper);
 
-		L.DomEvent.disableClickPropagation(wrapper);
+		L.DomEvent.disableClickPropagation(container);
 		L.DomEvent.disableScrollPropagation(this._contentNode);
-		L.DomEvent.on(wrapper, 'contextmenu', L.DomEvent.stopPropagation);
+		L.DomEvent.on(container, 'contextmenu', L.DomEvent.stopPropagation);
 
 		this._tipContainer = L.DomUtil.create('div', prefix + '-tip-container', container);
-  		if(!this.options.hasTip) {
-  			this._tipContainer.style.visibility = 'hidden';
-  		}
+		if(!this.options.hasTip) {
+			this._tipContainer.style.visibility = 'hidden';
+		}
 		this._tip = L.DomUtil.create('div', prefix + '-tip', this._tipContainer);
 
 		if (this.options.closeButton) {
 			var closeButton = this._closeButton = L.DomUtil.create('a', prefix + '-close-button', container);
+			closeButton.setAttribute('role', 'button'); // overrides the implicit role=link of <a> elements #7399
+			closeButton.setAttribute('aria-label', 'Close popup');
 			closeButton.href = '#close';
-			closeButton.innerHTML = '&#215;';
+			closeButton.innerHTML = '<span aria-hidden="true">&#215;</span>';
 
-			L.DomEvent.on(closeButton, 'click', this._onCloseButtonClick, this);
+			L.DomEvent.on(closeButton, 'click', function (ev) {
+				L.DomEvent.preventDefault(ev);
+				this.close();
+			}, this);
 		}
 	},
 	
