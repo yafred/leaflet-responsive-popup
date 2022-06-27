@@ -46,7 +46,7 @@ L.ResponsivePopup = L.Popup.extend({
 			var closeButton = this._closeButton = L.DomUtil.create('a', prefix + '-close-button', container);
 			closeButton.setAttribute('role', 'button'); // overrides the implicit role=link of <a> elements #7399
 			closeButton.setAttribute('aria-label', 'Close popup');
-			closeButton.href = '#close';
+			closeButton.href = '';
 			closeButton.innerHTML = '<span aria-hidden="true">&#215;</span>';
 
 			L.DomEvent.on(closeButton, 'click', function (ev) {
